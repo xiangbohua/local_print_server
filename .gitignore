@@ -1,0 +1,5 @@
+HTTPServer/obj/
+packages/
+LocalPrintServer/obj/
+.vs/LocalPrintServer/v14/.suo
+HTTPServerLib/obj/

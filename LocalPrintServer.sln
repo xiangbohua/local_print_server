@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalPrintServer", "LocalPrintServer\LocalPrintServer.csproj", "{FAC80A76-F32C-4D30-9F22-970F6E3E7395}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportTemplates", "ReportTemplates\ReportTemplates.csproj", "{BCEC8D9E-4B6B-42E3-9824-8F455DAF79FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTPServer", "HTTPServer\HTTPServer.csproj", "{9A1FAFE6-D2FA-45EC-AAE9-6802EFDD622E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpServerLib", "HTTPServerLib\HttpServerLib.csproj", "{C2310E13-8D59-4632-BF91-203BFF2FFE4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAC80A76-F32C-4D30-9F22-970F6E3E7395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAC80A76-F32C-4D30-9F22-970F6E3E7395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAC80A76-F32C-4D30-9F22-970F6E3E7395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAC80A76-F32C-4D30-9F22-970F6E3E7395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCEC8D9E-4B6B-42E3-9824-8F455DAF79FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCEC8D9E-4B6B-42E3-9824-8F455DAF79FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCEC8D9E-4B6B-42E3-9824-8F455DAF79FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCEC8D9E-4B6B-42E3-9824-8F455DAF79FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A1FAFE6-D2FA-45EC-AAE9-6802EFDD622E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A1FAFE6-D2FA-45EC-AAE9-6802EFDD622E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A1FAFE6-D2FA-45EC-AAE9-6802EFDD622E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A1FAFE6-D2FA-45EC-AAE9-6802EFDD622E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2310E13-8D59-4632-BF91-203BFF2FFE4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2310E13-8D59-4632-BF91-203BFF2FFE4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2310E13-8D59-4632-BF91-203BFF2FFE4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2310E13-8D59-4632-BF91-203BFF2FFE4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

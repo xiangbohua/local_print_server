@@ -1,0 +1,66 @@
+using System.Globalization;
+using Ruigu.Crm.BL.Think;
+using Ruigu.Crm.BL.WorkFlows;
+using Ruigu.CRM.BL.DC.IntentOrder;
+using Ruigu.CRM.BL.DC.OutboundOrder;
+
+namespace RuiguCrmReports.Orders
+{
+    using System;
+    using System.ComponentModel;
+    using System.Drawing;
+    using System.Windows.Forms;
+    using Telerik.Reporting;
+    using Telerik.Reporting.Drawing;
+
+    /// <summary>
+    /// Summary description for ExCustomerIntentSmOrder.
+    /// </summary>
+    public partial class ExCustomerIntentSmOrder : Telerik.Reporting.Report
+    {
+        public ExCustomerIntentSmOrder()
+        {
+            //
+            // Required for telerik Reporting designer support
+            //
+            InitializeComponent();
+
+            //
+            // TODO: Add any constructor code after InitializeComponent call
+            //
+        }
+
+        public void SetDateSource(RuiguOutboundOrder outboundOrder)
+        {
+            DataSource = outboundOrder;
+            RuiguCustomerIntentOrder intentOrder = RuiguCustomerIntentOrder.GetByOrderNumber(outboundOrder.DealerOrderNumber);
+            if (outboundOrder != null)
+            {
+                DateTime dtStart = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
+                long lTime = long.Parse(outboundOrder.CreatedOn + "0000000");
+                TimeSpan toNow = new TimeSpan(lTime);
+
+                textBox1.Value = "发货清单";
+                textBox3.Value = dtStart.Add(toNow).ToString("yyyy-MM-dd");
+                textBox4.Value = outboundOrder.SmOrderId;
+                textBox7.Value = outboundOrder.DealerOrderNumber;
+                textBox12.Value = outboundOrder.ReciverProvience + outboundOrder.ReciverRegion;
+                textBox11.Value = outboundOrder.ReciverName;
+                textBox8.Value = outboundOrder.ReciverContact;
+                textBox15.Value = outboundOrder.ReciverAddress;
+                textBox16.Value = intentOrder.VolumeByCubeMeter.ToString();
+                textBox18.Value = intentOrder.Weight.ToString();
+                textBox20.Value = intentOrder.Total_Money.ToString();
+
+            }
+           
+            ExCustomerIntentSmOrderItem itemReport = new ExCustomerIntentSmOrderItem(intentOrder, outboundOrder.OrderItemCollection)
+            {
+                Width = subReport1.Width
+            };
+            subReport1.ReportSource = itemReport;
+        }
+
+       
+    }
+}
