@@ -79,6 +79,16 @@ namespace HTTPServerLib
 
             if (!string.IsNullOrEmpty(this.Content_Type))
                 builder.AppendLine("Content-Type:" + this.Content_Type);
+
+            if (this.Headers != null && this.Headers.Count > 0)
+            {
+                foreach (KeyValuePair<string, string> header in this.Headers)
+                {
+                    builder.AppendLine(header.Key + ":" + header.Value + "\r\n");
+                }
+                builder.Remove(builder.Length - 2, 2);
+            }
+
             return builder.ToString();
         }
 

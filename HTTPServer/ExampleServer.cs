@@ -56,20 +56,21 @@ namespace HttpServer
             }
 
             //设置返回信息
-            string content = string.Format("Print request was accepted, server return :{0}", returnMessage);
+
+            string jsonResult = "{\"code\":200, \"msg\":\"" + returnMessage + "\"}";
 
             //构造响应报文
-            response.SetContent(content);
+            response.SetContent(jsonResult);
             response.Content_Encoding = "utf-8";
             response.StatusCode = "200";
-            response.Content_Type = "text/html; charset=UTF-8";
+            response.Content_Type = "text/json; charset=UTF-8";
             response.Headers = new Dictionary<string, string>();
             response.SetHeader("Access-Control-Allow-Origin", "*");
-            response.SetHeader("Access-Control-Allow-Headers", "Origin, Content-Type, Cookie, Accept");
-            response.SetHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, OPTIONS");
-            response.SetHeader("Access-Control-Allow-Credentials", "true");
+            //response.SetHeader("Access-Control-Allow-Headers", "Origin, Content-Type, Cookie, Accept");
+            //response.SetHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, OPTIONS");
+            //response.SetHeader("Access-Control-Allow-Credentials", "true");
 
-            response.SetHeader("Servern", "ExampleServer");
+            //response.SetHeader("Server", "ExampleServer");
 
             //发送响应
             response.Send();

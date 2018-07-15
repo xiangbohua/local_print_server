@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Diagnostics;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -22,6 +24,8 @@ namespace LocalPrintServer
     public delegate void PrintServerLogging(string logMaeesage);
 
     public delegate void StatisticsStateChange(int total, int succeed, int errpr);
+
+
 
     internal class LocalPrintServer
     {
@@ -51,7 +55,14 @@ namespace LocalPrintServer
 
         private LocalPrintServer()
         {
+            string rootPath = Environment.CurrentDirectory;
+            HttpServer = ExampleServer.GetSingleServer("0.0.0.0", this.Port);
+            HttpServer.SetRoot(rootPath);
+            HttpServer.OnPostRequestReceived = this.OnPrintRequestReceived;
 
+            HttpServer.Logger = new ConsoleLogger();
+
+            ServerThread = new Thread(new ThreadStart(HttpServerThread));
             this.OnPrintServerLogged = delegate (string maeesage) { Console.WriteLine(maeesage); };
         }
 
@@ -67,48 +78,67 @@ namespace LocalPrintServer
                 this.availablePrinterNames.Add(printer.ToString());
             }
 
+            string defaultPrinter = ReadPrinterName();
+            if (!string.IsNullOrEmpty(defaultPrinter))
+            {
+                if (this.availablePrinterNames.Contains(defaultPrinter))
+                {
+                    this.SelectPrinter(defaultPrinter);
+                }
+                else
+                {
+                    SafeFireLoging("上次使用的打印机器:" + defaultPrinter +" 已经无效，请重新选择打印机");
+                }
+            }
+
+
             OnPrinterLoaded?.Invoke(availablePrinterNames);
-            this.SafeFireLoging("Printers loaded using printers was :" + availablePrinterNames.Count);
+            this.SafeFireLoging("打印机加载成功，当前可用打印机数量:" + availablePrinterNames.Count);
         }
 
         private ExampleServer HttpServer = null;
-        private void StartServer(string address = "0.0.0.0")
+        private Thread ServerThread = null;
+        private void StartServer()
         {
-            string rootPath = Environment.CurrentDirectory;
-            HttpServer = ExampleServer.GetSingleServer(address, this.Port);
-            HttpServer.SetRoot(rootPath);
-            HttpServer.OnPostRequestReceived = this.OnPrintRequestReceived;
+            if (!ServerThread.IsAlive)
+            {
+                ServerThread.Start();
+            }
+            SafeFireLoging("服务已启动，端口：" + this.Port.ToString());
+        }
 
-            HttpServer.Logger = new ConsoleLogger();
+        private void HttpServerThread()
+        {
             HttpServer.Start();
-            SafeFireLoging("Printer server was running and waiting for print reqest. Using port is "+ this.Port.ToString());
         }
 
         public void StopServer()
         {
             try
             {
+                HttpServer.Stop();
                 HttpServer?.Stop();
-                SafeFireLoging("Http server was stopped");
+                SafeFireLoging("服务已停止");
             }
             catch (Exception ex)
             {
-                SafeFireLoging("Http server was stopp failed" + ex.Message);
+                SafeFireLoging("停止服务失败：" + ex.Message);
             }
         }
+        
 
         private string OnPrintRequestReceived(HttpRequest request, string jsonBody)
         {
             try
             {
                 ThreadPool.QueueUserWorkItem(new WaitCallback(PrintWithThread), request);
-                SafeFireLoging("添加打印任务成功");
-                return "添加打印任务成功";
+                SafeFireLoging("添加任务成功");
+                return "打印服务器已接受请求";
             }
             catch (Exception)
             {
 
-                return "添加打印任务失败！";
+                return "添加任务失败！";
             }
         }
 
@@ -116,12 +146,16 @@ namespace LocalPrintServer
         {
             try
             {
+                this.totalDocument++;
                 HttpRequest httpRequest = objectPara as HttpRequest;
                 if (httpRequest != null)
                 {
                     PrintModel model = ModelMaper.GetPrintModel(httpRequest.Body);
                     string filePath = model.PrintFile();
-
+                    string shortFile = Path.GetFileName(filePath);
+                    SafeFireLoging("文件生成成功：" + shortFile);
+                    PrintFile(filePath);
+                    SafeFireLoging("已发送到打印机：" + shortFile);
                 }
                 else
                 {
@@ -132,6 +166,7 @@ namespace LocalPrintServer
             {
                 SafeFireLoging("打印文件失败:" + ex.Message);
             }
+            SafeFirsStatistics();
         }
 
 
@@ -148,6 +183,7 @@ namespace LocalPrintServer
         {
             try
             {
+                message = DateTime.Now.ToString() + ": "+ message;
                 OnPrintServerLogged?.Invoke(message);
             }
             catch (Exception ex)
@@ -164,26 +200,31 @@ namespace LocalPrintServer
             }
             catch (Exception ex)
             {
-                SafeFireLoging("Update print statistis infomation error");
+                SafeFireLoging("更新统计信息失败："+ ex.Message);
             }
         }
 
         public void SelectPrinter(string printerName)
         {
-            if (this.availablePrinterNames.Contains(printerName))
+            if (this.availablePrinterNames.Contains(printerName) && !string.IsNullOrEmpty(printerName))
             {
                 this.selectedPrinterName = printerName;
                 OnPrinterChanged?.Invoke(this.selectedPrinterName);
+                
+                SafeFireLoging("打印机被选中" + printerName + " 已写入配置文件，下次启动将使用此打印机");
+                WritPrinterName(printerName);
+            }
+            else
+            {
+                SafeFireLoging("无效打印机名称");
             }
         }
 
-        private void PrintFile(string fileName)
+        private void PrintFile(string shortFile)
         {
-            this.totalDocument ++;
-
             try
             {
-                this.OpenFile(fileName);
+                this.OpenFile(shortFile);
                 this.succeedDocument ++;
             }
             catch (Exception ex)
@@ -203,26 +244,64 @@ namespace LocalPrintServer
             }
         }
 
-        private void OpenFile(string printerName)
+
+        private string ReadPrinterName()
+        {
+            string file = System.Windows.Forms.Application.ExecutablePath;
+            Configuration config = ConfigurationManager.OpenExeConfiguration(file);
+            foreach (string key in config.AppSettings.Settings.AllKeys)
+            {
+                if (key == ConfKeyName)
+                {
+                    return config.AppSettings.Settings[key].Value.ToString();
+                }
+            }
+            return null;
+        }
+
+        private string ConfKeyName = "SelectedPrinterName";
+
+        private void WritPrinterName(string newPrinterName)
+        {
+            string file = System.Windows.Forms.Application.ExecutablePath;
+            Configuration config = ConfigurationManager.OpenExeConfiguration(file);
+            bool exist = false;
+            foreach (string key in config.AppSettings.Settings.AllKeys)
+            {
+                if (key == ConfKeyName)
+                {
+                    exist = true;
+                }
+            }
+            if (exist)
+            {
+                config.AppSettings.Settings.Remove(ConfKeyName);
+            }
+            config.AppSettings.Settings.Add(ConfKeyName, newPrinterName);
+            config.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("appSettings");
+        }
+
+        private void OpenFile(string shortFile)
         {
             try
             {
-                Debug.Print(printerName);
                 ProcessStartInfo info = new ProcessStartInfo();
-                info.Verb = "print";
+                //info.Verb = "print";
                 Process p = new Process();
-                info.FileName = this.selectedPrinterName;
+                info.FileName = shortFile;
                 info.CreateNoWindow = true;
 
                 //p.StartInfo.RedirectStandardInput = true;//重定向标准输入  
                 //p.StartInfo.RedirectStandardOutput = true;//重定向标准输出  
                 //p.StartInfo.RedirectStandardError = true;//重定向错误输出  
 
-                p.StartInfo.Arguments = printerName;
+                p.StartInfo.Arguments = this.selectedPrinterName;
                 info.WindowStyle = ProcessWindowStyle.Hidden;
                 p.StartInfo = info;
                 p.Start();
                 p.WaitForInputIdle();
+                //File.Delete(shortFile);
             }
             catch (Win32Exception win32Exception)
             {

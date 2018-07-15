@@ -15,10 +15,12 @@ namespace ReportTemplates.Models
 
         public abstract string PrintFile();
 
+        public static string FileSavePath = Environment.CurrentDirectory + "\\PrintFiles";
+
         protected string ExportPdf(IReportDocument report)
         {
-            string rootPath = Environment.CurrentDirectory;
-            string fullPath = rootPath + "/" + Utility.Utilities.CleanInvalidFileName(this.file_name) + ".pdf";
+            Utility.Utilities.CreateDir(FileSavePath);
+            string fullPath = FileSavePath +"\\" + Utility.Utilities.CleanInvalidFileName(this.file_name) + ".pdf";
 
             Exception exportException;
             ReportExporter.SaveReport(report, fullPath, out exportException);
