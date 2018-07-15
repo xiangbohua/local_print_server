@@ -150,12 +150,19 @@ namespace LocalPrintServer
                 HttpRequest httpRequest = objectPara as HttpRequest;
                 if (httpRequest != null)
                 {
-                    PrintModel model = ModelMaper.GetPrintModel(httpRequest.Body);
-                    string filePath = model.PrintFile();
-                    string shortFile = Path.GetFileName(filePath);
-                    SafeFireLoging("文件生成成功：" + shortFile);
-                    PrintFile(filePath);
-                    SafeFireLoging("已发送到打印机：" + shortFile);
+                    if (!string.IsNullOrEmpty(this.selectedPrinterName))
+                    {
+                        PrintModel model = ModelMaper.GetPrintModel(httpRequest.Body);
+                        string filePath = model.PrintFile();
+                        string shortFile = Path.GetFileName(filePath);
+                        SafeFireLoging("文件生成成功：" + shortFile);
+                        PrintFile(filePath);
+                        SafeFireLoging("已发送到打印机：" + shortFile);
+                    }
+                    else
+                    {
+                        SafeFireLoging("无法打印，当前尚未选择打印机");
+                    }
                 }
                 else
                 {
@@ -287,7 +294,7 @@ namespace LocalPrintServer
             try
             {
                 ProcessStartInfo info = new ProcessStartInfo();
-                //info.Verb = "print";
+                info.Verb = "print";
                 Process p = new Process();
                 info.FileName = shortFile;
                 info.CreateNoWindow = true;

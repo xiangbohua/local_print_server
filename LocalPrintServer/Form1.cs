@@ -228,5 +228,24 @@ namespace LocalPrintServer
                 MessageBox.Show("打开文件夹失败");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Directory.Exists(PrintModel.FileSavePath))
+                {
+                    Directory.Delete(PrintModel.FileSavePath);
+                }
+                else
+                {
+                    MessageBox.Show("暂无文件", "清理文件");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("清理文件失败");
+            }
+        }
     }
 }

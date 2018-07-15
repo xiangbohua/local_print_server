@@ -4,3 +4,10 @@ LocalPrintServer/obj/
 .vs/LocalPrintServer/v14/.suo
 HTTPServerLib/obj/
 LocalPrintServer/bin/Debug/PrintFiles/上海地推仓分拨表2018_07_15_10_30_54.pdf
+LocalPrintServer/bin/
+Utility/bin/
+ReportTemplates/obj/
+ReportTemplates/bin/
+Utility/obj/
+HTTPServerLib/bin/
+HTTPServer/bin/
