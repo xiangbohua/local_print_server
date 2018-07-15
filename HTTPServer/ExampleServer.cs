@@ -13,12 +13,21 @@ namespace HttpServer
     {
         public PostRequestReceived OnPostRequestReceived = null;
 
+        private static ExampleServer Server = null;
+
+        public static ExampleServer GetSingleServer(string address, int port)
+        {
+            if (Server == null)
+                Server = new ExampleServer(address, port);
+            return Server;
+        }
+
         /// <summary>
         /// 构造函数
         /// </summary>
         /// <param name="ipAddress">IP地址</param>
         /// <param name="port">端口号</param>
-        public ExampleServer(string ipAddress, int port)
+        private ExampleServer(string ipAddress, int port)
             : base(ipAddress, port)
         {
 
@@ -54,7 +63,13 @@ namespace HttpServer
             response.Content_Encoding = "utf-8";
             response.StatusCode = "200";
             response.Content_Type = "text/html; charset=UTF-8";
-            //response.Headers["Server"] = "ExampleServer";
+            response.Headers = new Dictionary<string, string>();
+            response.SetHeader("Access-Control-Allow-Origin", "*");
+            response.SetHeader("Access-Control-Allow-Headers", "Origin, Content-Type, Cookie, Accept");
+            response.SetHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, OPTIONS");
+            response.SetHeader("Access-Control-Allow-Credentials", "true");
+
+            response.SetHeader("Servern", "ExampleServer");
 
             //发送响应
             response.Send();
@@ -101,7 +116,7 @@ namespace HttpServer
             //                    response.Content_Type = "text/html; charset=UTF-8";
             //                }
             //            }
-            response = response.SetContent("Local print server is running", Encoding.UTF8);
+            response = response.SetContent("Local print server is running...", Encoding.UTF8);
             response.Content_Type = "text/html; charset=UTF-8";
             response.StatusCode = "200";
             //发送HTTP响应

@@ -1,0 +1,5 @@
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\Utility\bin\Debug\Utility.dll
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\Utility\bin\Debug\Utility.pdb
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\Utility\obj\Debug\Utility.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\Utility\obj\Debug\Utility.dll
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\Utility\obj\Debug\Utility.pdb

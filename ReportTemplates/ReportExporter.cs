@@ -3,7 +3,7 @@ using System.IO;
 using Telerik.Reporting;
 using Telerik.Reporting.Processing;
 
-namespace RuiguCrmReports
+namespace ReportTemplates
 {
     public static class ReportExporter
     {

@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ReportTemplates</RootNamespace>
     <AssemblyName>ReportTemplates</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,8 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Terlerik\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,337 +51,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AfterSale\PickOrderProductLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="AfterSale\PickOrderProductLabel.Designer.cs">
-      <DependentUpon>PickOrderProductLabel.cs</DependentUpon>
-    </Compile>
     <Compile Include="BusinessObjectExporter.cs" />
-    <Compile Include="DeliveryTask\WaybillTask.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DeliveryTask\WaybillTask.Designer.cs">
-      <DependentUpon>WaybillTask.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DeliveryTask\WaybillTaskList.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DeliveryTask\WaybillTaskList.Designer.cs">
-      <DependentUpon>WaybillTaskList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\AfterServicePickUpOrder.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\AfterServicePickUpOrder.Designer.cs">
-      <DependentUpon>AfterServicePickUpOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExConsignOrder.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExConsignOrder.Designer.cs">
-      <DependentUpon>ExConsignOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExConsignOrderItem.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExConsignOrderItem.Designer.cs">
-      <DependentUpon>ExConsignOrderItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExCustomerIntentSmOrder.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExCustomerIntentSmOrder.Designer.cs">
-      <DependentUpon>ExCustomerIntentSmOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExCustomerIntentSmOrder2.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExCustomerIntentSmOrder2.Designer.cs">
-      <DependentUpon>ExCustomerIntentSmOrder2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExCustomerIntentSmOrderItem.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExCustomerIntentSmOrderItem.Designer.cs">
-      <DependentUpon>ExCustomerIntentSmOrderItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExOrderPaymentManagement.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExOrderPaymentManagement.Designer.cs">
-      <DependentUpon>ExOrderPaymentManagement.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExPurchaseReturnOrder.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExPurchaseReturnOrder.Designer.cs">
-      <DependentUpon>ExPurchaseReturnOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExPurchaseReturnOrderItem.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExPurchaseReturnOrderItem.Designer.cs">
-      <DependentUpon>ExPurchaseReturnOrderItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExSupplierConsignment.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExSupplierConsignment.Designer.cs">
-      <DependentUpon>ExSupplierConsignment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExSupplierOrder.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExSupplierOrder.Designer.cs">
-      <DependentUpon>ExSupplierOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExSupplierOrder1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExSupplierOrder1.Designer.cs">
-      <DependentUpon>ExSupplierOrder1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExSupplierOrder3.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExSupplierOrder3.Designer.cs">
-      <DependentUpon>ExSupplierOrder3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExSupplierOrderItem.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExSupplierOrderItem.Designer.cs">
-      <DependentUpon>ExSupplierOrderItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExWayBillCheck.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExWayBillCheck.Designer.cs">
-      <DependentUpon>ExWayBillCheck.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExWayBillCheckIntentOrderDetail.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExWayBillCheckIntentOrderDetail.Designer.cs">
-      <DependentUpon>ExWayBillCheckIntentOrderDetail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ExWayBillCheckItem.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ExWayBillCheckItem.Designer.cs">
-      <DependentUpon>ExWayBillCheckItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ReturnMoneyOrder.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ReturnMoneyOrder.Designer.cs">
-      <DependentUpon>ReturnMoneyOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Orders\ReturnMoneyOrderItem.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Orders\ReturnMoneyOrderItem.Designer.cs">
-      <DependentUpon>ReturnMoneyOrderItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductLabel\ProductLabelExporter.cs" />
-    <Compile Include="ProductLabel\ProductLabelNewEdition.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ProductLabel\ProductLabelNewEdition.Designer.cs">
-      <DependentUpon>ProductLabelNewEdition.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductLabel\ProductPackageQrCode.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ProductLabel\ProductPackageQrCode.Designer.cs">
-      <DependentUpon>ProductPackageQrCode.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductLabel\ProductPackLabe53.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ProductLabel\ProductPackLabe53.Designer.cs">
-      <DependentUpon>ProductPackLabe53.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductLabel\ProductPackLabe53Other.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ProductLabel\ProductPackLabe53Other.Designer.cs">
-      <DependentUpon>ProductPackLabe53Other.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductLabel\ProductPackLabelMid.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ProductLabel\ProductPackLabelMid.Designer.cs">
-      <DependentUpon>ProductPackLabelMid.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductLabel\ProductPackLabelMidOther.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ProductLabel\ProductPackLabelMidOther.Designer.cs">
-      <DependentUpon>ProductPackLabelMidOther.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductLabel\RepairProductLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ProductLabel\RepairProductLabel.Designer.cs">
-      <DependentUpon>RepairProductLabel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductLabel\WarehouseLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ProductLabel\WarehouseLabel.Designer.cs">
-      <DependentUpon>WarehouseLabel.cs</DependentUpon>
-    </Compile>
+    <Compile Include="IAutoPrintTemplate.cs" />
+    <Compile Include="Models\ModelMaper.cs" />
+    <Compile Include="Models\PrintModel.cs" />
+    <Compile Include="Models\WaybillTaskListModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resource1.Designer.cs" />
     <Compile Include="QrCodePdfGenerater.cs" />
     <Compile Include="ReportExporter.cs" />
-    <Compile Include="Supplier\OuterPackageLabel.cs">
+    <Compile Include="Transport\WaybillTaskList.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Supplier\OuterPackageLabel.Designer.cs">
-      <DependentUpon>OuterPackageLabel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Supplier\ProductLabelSecond.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Supplier\ProductLabelSecond.Designer.cs">
-      <DependentUpon>ProductLabelSecond.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Supplier\ProductMinPackageLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Supplier\ProductMinPackageLabel.Designer.cs">
-      <DependentUpon>ProductMinPackageLabel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Supplier\ProductMinPackageLabelByA4.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Supplier\ProductMinPackageLabelByA4.Designer.cs">
-      <DependentUpon>ProductMinPackageLabelByA4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Supplier\ProductMinPackageLabelSmall.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Supplier\ProductMinPackageLabelSmall.Designer.cs">
-      <DependentUpon>ProductMinPackageLabelSmall.cs</DependentUpon>
+    <Compile Include="Transport\WaybillTaskList.Designer.cs">
+      <DependentUpon>WaybillTaskList.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AssemblyInfo.cs.orig" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AfterSale\PickOrderProductLabel.resx">
-      <DependentUpon>PickOrderProductLabel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DeliveryTask\WaybillTask.resx">
-      <DependentUpon>WaybillTask.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DeliveryTask\WaybillTaskList.resx">
-      <DependentUpon>WaybillTaskList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\AfterServicePickUpOrder.resx">
-      <DependentUpon>AfterServicePickUpOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExConsignOrder.resx">
-      <DependentUpon>ExConsignOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExConsignOrderItem.resx">
-      <DependentUpon>ExConsignOrderItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExCustomerIntentSmOrder.resx">
-      <DependentUpon>ExCustomerIntentSmOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExCustomerIntentSmOrder2.resx">
-      <DependentUpon>ExCustomerIntentSmOrder2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExCustomerIntentSmOrderItem.resx">
-      <DependentUpon>ExCustomerIntentSmOrderItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExOrderPaymentManagement.resx">
-      <DependentUpon>ExOrderPaymentManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExPurchaseReturnOrder.resx">
-      <DependentUpon>ExPurchaseReturnOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExPurchaseReturnOrderItem.resx">
-      <DependentUpon>ExPurchaseReturnOrderItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExSupplierConsignment.resx">
-      <DependentUpon>ExSupplierConsignment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExSupplierOrder.resx">
-      <DependentUpon>ExSupplierOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExSupplierOrder1.resx">
-      <DependentUpon>ExSupplierOrder1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExSupplierOrder3.resx">
-      <DependentUpon>ExSupplierOrder3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExSupplierOrderItem.resx">
-      <DependentUpon>ExSupplierOrderItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExWayBillCheck.resx">
-      <DependentUpon>ExWayBillCheck.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExWayBillCheckIntentOrderDetail.resx">
-      <DependentUpon>ExWayBillCheckIntentOrderDetail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ExWayBillCheckItem.resx">
-      <DependentUpon>ExWayBillCheckItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ReturnMoneyOrder.resx">
-      <DependentUpon>ReturnMoneyOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders\ReturnMoneyOrderItem.resx">
-      <DependentUpon>ReturnMoneyOrderItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductLabel\ProductLabelNewEdition.resx">
-      <DependentUpon>ProductLabelNewEdition.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductLabel\ProductPackageQrCode.resx">
-      <DependentUpon>ProductPackageQrCode.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductLabel\ProductPackLabe53.resx">
-      <DependentUpon>ProductPackLabe53.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductLabel\ProductPackLabe53Other.resx">
-      <DependentUpon>ProductPackLabe53Other.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductLabel\ProductPackLabelMid.resx">
-      <DependentUpon>ProductPackLabelMid.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductLabel\ProductPackLabelMidOther.resx">
-      <DependentUpon>ProductPackLabelMidOther.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductLabel\RepairProductLabel.resx">
-      <DependentUpon>RepairProductLabel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductLabel\WarehouseLabel.resx">
-      <DependentUpon>WarehouseLabel.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-    <EmbeddedResource Include="Properties\Resource1.resx" />
-    <EmbeddedResource Include="Supplier\OuterPackageLabel.resx">
-      <DependentUpon>OuterPackageLabel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Supplier\ProductLabelSecond.resx">
-      <DependentUpon>ProductLabelSecond.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Supplier\ProductMinPackageLabel.resx">
-      <DependentUpon>ProductMinPackageLabel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Supplier\ProductMinPackageLabelByA4.resx">
-      <DependentUpon>ProductMinPackageLabelByA4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Supplier\ProductMinPackageLabelSmall.resx">
-      <DependentUpon>ProductMinPackageLabelSmall.cs</DependentUpon>
+    <EmbeddedResource Include="Properties\Resource1.resx">
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{f71234ed-5110-4452-ac51-6705b9d67962}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

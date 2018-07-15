@@ -1,0 +1,12 @@
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\bin\Debug\ReportTemplates.dll
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\bin\Debug\ReportTemplates.pdb
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\bin\Debug\Telerik.Reporting.dll
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\bin\Debug\Utility.dll
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\bin\Debug\Utility.pdb
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\obj\Debug\ReportTemplates.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\obj\Debug\ReportTemplates.Properties.Resource1.resources
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\obj\Debug\ReportTemplates.csproj.GenerateResource.Cache
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\obj\Debug\ReportTemplates.dll.licenses
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\obj\Debug\ReportTemplates.dll
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\obj\Debug\ReportTemplates.pdb
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\bin\Debug\Newtonsoft.Json.dll

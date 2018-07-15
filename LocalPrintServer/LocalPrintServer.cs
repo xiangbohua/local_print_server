@@ -5,9 +5,13 @@ using System.Diagnostics;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using HttpServer;
 using HTTPServerLib;
+using ReportTemplates;
+using ReportTemplates.Models;
 
 namespace LocalPrintServer
 {
@@ -47,6 +51,8 @@ namespace LocalPrintServer
 
         private LocalPrintServer()
         {
+
+            this.OnPrintServerLogged = delegate (string maeesage) { Console.WriteLine(maeesage); };
         }
 
         private LocalPrintServer(int workingPort)
@@ -65,25 +71,67 @@ namespace LocalPrintServer
             this.SafeFireLoging("Printers loaded using printers was :" + availablePrinterNames.Count);
         }
 
+        private ExampleServer HttpServer = null;
         private void StartServer(string address = "0.0.0.0")
         {
             string rootPath = Environment.CurrentDirectory;
-            ExampleServer server = new ExampleServer(address, this.Port);
-            server.SetRoot(rootPath);
-            server.OnPostRequestReceived = this.OnPrintRequestReceived;
+            HttpServer = ExampleServer.GetSingleServer(address, this.Port);
+            HttpServer.SetRoot(rootPath);
+            HttpServer.OnPostRequestReceived = this.OnPrintRequestReceived;
 
-            server.Logger = new ConsoleLogger();
-            server.Start();
-
+            HttpServer.Logger = new ConsoleLogger();
+            HttpServer.Start();
             SafeFireLoging("Printer server was running and waiting for print reqest. Using port is "+ this.Port.ToString());
         }
 
+        public void StopServer()
+        {
+            try
+            {
+                HttpServer?.Stop();
+                SafeFireLoging("Http server was stopped");
+            }
+            catch (Exception ex)
+            {
+                SafeFireLoging("Http server was stopp failed" + ex.Message);
+            }
+        }
 
         private string OnPrintRequestReceived(HttpRequest request, string jsonBody)
         {
+            try
+            {
+                ThreadPool.QueueUserWorkItem(new WaitCallback(PrintWithThread), request);
+                SafeFireLoging("添加打印任务成功");
+                return "添加打印任务成功";
+            }
+            catch (Exception)
+            {
 
+                return "添加打印任务失败！";
+            }
+        }
 
-            return jsonBody;
+        private void PrintWithThread(object objectPara)
+        {
+            try
+            {
+                HttpRequest httpRequest = objectPara as HttpRequest;
+                if (httpRequest != null)
+                {
+                    PrintModel model = ModelMaper.GetPrintModel(httpRequest.Body);
+                    string filePath = model.PrintFile();
+
+                }
+                else
+                {
+                    SafeFireLoging("当前传递的参数不正确,当前传入的参数类型为:" + typeof(object).Name);
+                }
+            }
+            catch (Exception ex)
+            {
+                SafeFireLoging("打印文件失败:" + ex.Message);
+            }
         }
 
 
