@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,10 +16,27 @@ namespace LocalPrintServer
         [STAThread]
         static void Main()
         {
+            bool isRunning = isAlreadyRunning();
+            if (isRunning)
+            {
+                return;
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new Form1());
+        }
+
+        private static bool isAlreadyRunning()
+        {
+            bool b = false;
+            Process[] mProcs = Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName);
+            if (mProcs.Length > 1)
+            {
+                b = true;
+            }
+            return b;
         }
     }
 }

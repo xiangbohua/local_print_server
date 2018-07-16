@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -218,6 +219,21 @@ namespace Utility
             {
                 return extension.ToLower() == "." + extensionGiving.ToLower() ? true : false;
             }
+        }
+
+        public static Process[] GetProcessByName(string appName)
+        {
+            Process[] allProcesses = Process.GetProcessesByName(appName);
+            List<Process> returnProcess = new List<Process>();
+            foreach (Process pro in allProcesses)
+            {
+                Console.WriteLine(pro.ProcessName);
+                if (pro.ProcessName == appName)
+                {
+                    returnProcess.Add(pro);
+                }
+            }
+            return returnProcess.ToArray();
         }
 
         //public static void WriteFile(String dir, string fileName, string fileContent)

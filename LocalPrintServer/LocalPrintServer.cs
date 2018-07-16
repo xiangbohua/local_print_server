@@ -77,6 +77,7 @@ namespace LocalPrintServer
             {
                 this.availablePrinterNames.Add(printer.ToString());
             }
+            OnPrinterLoaded?.Invoke(availablePrinterNames);
 
             string defaultPrinter = ReadPrinterName();
             if (!string.IsNullOrEmpty(defaultPrinter))
@@ -91,25 +92,39 @@ namespace LocalPrintServer
                 }
             }
 
-
-            OnPrinterLoaded?.Invoke(availablePrinterNames);
-            this.SafeFireLoging("打印机加载成功，当前可用打印机数量:" + availablePrinterNames.Count);
+            if (this.availablePrinterNames.Count == 0)
+            {
+                this.SafeFireLoging("打印机加载失败,未找到可用打印机，您可以查看点击查看文件");
+            }
+            else
+            {
+                this.SafeFireLoging("打印机加载成功，当前可用打印机数量:" + availablePrinterNames.Count);
+            }
         }
 
-        private ExampleServer HttpServer = null;
-        private Thread ServerThread = null;
+        private readonly ExampleServer HttpServer = null;
+        private readonly Thread ServerThread = null;
         private void StartServer()
         {
             if (!ServerThread.IsAlive)
             {
                 ServerThread.Start();
+
+                SafeFireLoging("服务线程已启动，正在尝试打开服务..." );
             }
-            SafeFireLoging("服务已启动，端口：" + this.Port.ToString());
         }
 
         private void HttpServerThread()
         {
-            HttpServer.Start();
+            try
+            {
+                SafeFireLoging("服务已启动,您现在可以打印...");
+                HttpServer.Start();
+            }
+            catch (Exception ex)
+            {
+                SafeFireLoging("出现异常，服务已关闭："+ ex.Message);
+            }
         }
 
         public void StopServer()
@@ -150,18 +165,20 @@ namespace LocalPrintServer
                 HttpRequest httpRequest = objectPara as HttpRequest;
                 if (httpRequest != null)
                 {
+                    PrintModel model = ModelMaper.GetPrintModel(httpRequest.Body);
+                    string filePath = model.GenerateFile();
+
+                    string shortFile = Path.GetFileName(filePath);
+                    SafeFireLoging("文件生成成功：" + shortFile);
+
                     if (!string.IsNullOrEmpty(this.selectedPrinterName))
                     {
-                        PrintModel model = ModelMaper.GetPrintModel(httpRequest.Body);
-                        string filePath = model.PrintFile();
-                        string shortFile = Path.GetFileName(filePath);
-                        SafeFireLoging("文件生成成功：" + shortFile);
                         PrintFile(filePath);
                         SafeFireLoging("已发送到打印机：" + shortFile);
                     }
                     else
                     {
-                        SafeFireLoging("无法打印，当前尚未选择打印机");
+                        SafeFireLoging("当前尚未选择打印机, 请选择打印机或者点击查看文件");
                     }
                 }
                 else
@@ -251,6 +268,7 @@ namespace LocalPrintServer
             }
         }
 
+        
 
         private string ReadPrinterName()
         {

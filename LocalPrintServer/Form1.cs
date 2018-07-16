@@ -235,16 +235,16 @@ namespace LocalPrintServer
             {
                 if (Directory.Exists(PrintModel.FileSavePath))
                 {
-                    Directory.Delete(PrintModel.FileSavePath);
+                    Directory.Delete(PrintModel.FileSavePath, true);
                 }
                 else
                 {
                     MessageBox.Show("暂无文件", "清理文件");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("清理文件失败");
+                MessageBox.Show("清理文件失败", "清理文件");
             }
         }
     }

@@ -11,7 +11,7 @@ namespace ReportTemplates.Models
     {
         public WaybillTaskListItem[] data { get; set; }
 
-        public override string PrintFile()
+        public override string GenerateFile()
         {
             WaybillTaskList pp = new WaybillTaskList();
             pp.SetDateSource(this);
