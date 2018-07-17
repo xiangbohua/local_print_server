@@ -36,6 +36,8 @@ namespace LocalPrintServer
         public PrintServerLogging OnPrintServerLogged = null;
         public StatisticsStateChange OnStatisticsStateChanged = null;
 
+        private bool PrintNow = true;
+
         private int totalDocument = 0;
         private int succeedDocument = 0;
         private int errorDocument = 0;
@@ -109,9 +111,14 @@ namespace LocalPrintServer
             if (!ServerThread.IsAlive)
             {
                 ServerThread.Start();
-
+                StartSerialPrintThread();
                 SafeFireLoging("服务线程已启动，正在尝试打开服务..." );
             }
+        }
+
+        public void SetPrintNow(bool printNow)
+        {
+            this.PrintNow = printNow;
         }
 
         private void HttpServerThread()
@@ -140,7 +147,22 @@ namespace LocalPrintServer
                 SafeFireLoging("停止服务失败：" + ex.Message);
             }
         }
-        
+
+        private Thread serialPrinThread = null;
+        private void StartSerialPrintThread()
+        {
+            try
+            {
+                serialPrinThread = new Thread(new ThreadStart(SerialPrintThread));
+                serialPrinThread.Start();
+
+                SafeFireLoging("同步打印线程开启成功，当接请求需要同步打印时系统将请求接受顺序打印！");
+            }
+            catch (Exception e)
+            {
+                SafeFireLoging("同步打印线程开启失败，当前不支持顺序打印！");
+            }
+        }
 
         private string OnPrintRequestReceived(HttpRequest request, string jsonBody)
         {
@@ -166,19 +188,14 @@ namespace LocalPrintServer
                 if (httpRequest != null)
                 {
                     PrintModel model = ModelMaper.GetPrintModel(httpRequest.Body);
-                    string filePath = model.GenerateFile();
-
-                    string shortFile = Path.GetFileName(filePath);
-                    SafeFireLoging("文件生成成功：" + shortFile);
-
-                    if (!string.IsNullOrEmpty(this.selectedPrinterName))
+                    if (model.print_interval <= 0)
                     {
-                        PrintFile(filePath);
-                        SafeFireLoging("已发送到打印机：" + shortFile);
+                        //同步乱序打印
+                        DoPrintJobWithModel(model);
                     }
                     else
                     {
-                        SafeFireLoging("当前尚未选择打印机, 请选择打印机或者点击查看文件");
+                        DoPrintJonWithModelSerial(model);
                     }
                 }
                 else
@@ -193,6 +210,55 @@ namespace LocalPrintServer
             SafeFirsStatistics();
         }
 
+        ManualResetEvent printEvent = new ManualResetEvent(false);
+
+        private void SerialPrintThread()
+        {
+            while (true)
+            {
+                PrintModel nextModl = ModelMaper.PopAJob();
+                if (nextModl != null)
+                {
+                    DoPrintJobWithModel(nextModl);
+                    Thread.Sleep(nextModl.print_interval * 1000);
+                }
+                else
+                {
+                    printEvent.WaitOne();
+                }
+            }
+        }
+
+        private void DoPrintJobWithModel(PrintModel model)
+        {
+            string filePath = model.GenerateFile();
+
+            string shortFile = Path.GetFileName(filePath);
+            SafeFireLoging("文件生成成功：" + shortFile);
+
+            if (this.PrintNow)
+            {
+                if (!string.IsNullOrEmpty(this.selectedPrinterName))
+                {
+                    PrintFile(filePath);
+                    SafeFireLoging("已发送到打印机：" + shortFile);
+                }
+                else
+                {
+                    SafeFireLoging("当前尚未选择打印机, 请选择打印机或者点击查看文件");
+                }
+            }
+            else
+            {
+                SafeFireLoging("文件未发送到打印机，您选择仅生成文件");
+            }
+        }
+
+        private void DoPrintJonWithModelSerial(PrintModel model)
+        {
+            ModelMaper.AddJob(model);
+            printEvent.Set();
+        }
 
         /// <summary>
         /// 开启流程

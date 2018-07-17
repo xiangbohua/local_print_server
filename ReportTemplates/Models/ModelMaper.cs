@@ -12,6 +12,27 @@ namespace ReportTemplates.Models
 {
     public class ModelMaper
     {
+        private static Queue<PrintModel> _printJobs = new Queue<PrintModel>();
+        private static object jobLock = new object();
+
+        public static void AddJob(PrintModel m)
+        {
+            lock(jobLock)
+            {
+                _printJobs.Enqueue(m);
+            }
+        }
+
+        public static PrintModel PopAJob()
+        {
+            lock (jobLock)
+            {
+                if (_printJobs.Count > 0) 
+                    return _printJobs.Dequeue();
+                return null;
+            }
+        }
+
         public static PrintModel GetPrintModel(string modelData)
         {
             JObject jo = (JObject)JsonConvert.DeserializeObject(modelData);

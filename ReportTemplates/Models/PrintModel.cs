@@ -13,6 +13,8 @@ namespace ReportTemplates.Models
 
         public string print_type { get; set; }
 
+        public int print_interval { get; set; }
+
         public abstract string GenerateFile();
 
         public static string FileSavePath = Environment.CurrentDirectory + "\\PrintFiles";
