@@ -96,6 +96,12 @@
     <EmbeddedResource Include="Properties\Resource1.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Transport\AfterServicePickUpOrder.resx">
+      <DependentUpon>AfterServicePickUpOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\DeliveryOrder.resx">
+      <DependentUpon>DeliveryOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transport\WaybillTask.resx">
       <DependentUpon>WaybillTask.cs</DependentUpon>
     </EmbeddedResource>

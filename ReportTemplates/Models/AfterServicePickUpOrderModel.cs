@@ -25,7 +25,6 @@ namespace ReportTemplates.Models
         public int box_count { get; set; }
         public string pay_money { get; set; }
         public string remark { get; set; }
-        public int print_interval { get; set; }
         public override string GenerateFile()
         {
             AfterServicePickUpOrder print = new AfterServicePickUpOrder();
@@ -33,7 +32,7 @@ namespace ReportTemplates.Models
             return this.ExportPdf(print);
         }
 
-        public Aitem[] aitem { get; set; }
+        public Aitem[] data { get; set; }
     }
 
     public class Aitem

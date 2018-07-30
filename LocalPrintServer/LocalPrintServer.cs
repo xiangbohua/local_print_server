@@ -250,7 +250,6 @@ namespace LocalPrintServer
                 if (!string.IsNullOrEmpty(this.selectedPrinterName))
                 {
                     PrintFile(filePath);
-                    SafeFireLoging("已发送到打印机：" + shortFile);
                 }
                 else
                 {
@@ -325,6 +324,7 @@ namespace LocalPrintServer
             {
                 this.OpenFile(shortFile);
                 this.succeedDocument ++;
+                SafeFireLoging("已发送到打印机：" + shortFile);
             }
             catch (Exception ex)
             {

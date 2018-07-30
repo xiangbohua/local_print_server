@@ -15,7 +15,6 @@ namespace ReportTemplates.Transport
             Telerik.Reporting.TableGroup tableGroup4 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup5 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup6 = new Telerik.Reporting.TableGroup();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AfterServicePickUpOrder));
             Telerik.Reporting.TableGroup tableGroup7 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup8 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup9 = new Telerik.Reporting.TableGroup();
@@ -32,6 +31,7 @@ namespace ReportTemplates.Transport
             Telerik.Reporting.TableGroup tableGroup20 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup21 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup22 = new Telerik.Reporting.TableGroup();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AfterServicePickUpOrder));
             Telerik.Reporting.Drawing.StyleRule styleRule1 = new Telerik.Reporting.Drawing.StyleRule();
             this.textBox20 = new Telerik.Reporting.TextBox();
             this.textBox11 = new Telerik.Reporting.TextBox();
@@ -54,7 +54,6 @@ namespace ReportTemplates.Transport
             this.textBox19 = new Telerik.Reporting.TextBox();
             this.textBox17 = new Telerik.Reporting.TextBox();
             this.lbOrderType = new Telerik.Reporting.TextBox();
-            this.pictureBox1 = new Telerik.Reporting.PictureBox();
             this.pageHeaderSection1 = new Telerik.Reporting.PageHeaderSection();
             this.txtConsignIndex = new Telerik.Reporting.TextBox();
             this.txtType = new Telerik.Reporting.TextBox();
@@ -79,6 +78,7 @@ namespace ReportTemplates.Transport
             this.txtSmOrder = new Telerik.Reporting.TextBox();
             this.textBox5 = new Telerik.Reporting.TextBox();
             this.txtRemark = new Telerik.Reporting.TextBox();
+            this.pictureBox1 = new Telerik.Reporting.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // textBox20
@@ -349,23 +349,14 @@ namespace ReportTemplates.Transport
             this.lbOrderType.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
             this.lbOrderType.Value = "售后提货单";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(15.000000953674316D), Telerik.Reporting.Drawing.Unit.Cm(0.10000007599592209D));
-            this.pictureBox1.MimeType = "image/jpeg";
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.6000008583068848D), Telerik.Reporting.Drawing.Unit.Cm(1.0000001192092896D));
-            this.pictureBox1.Sizing = Telerik.Reporting.Drawing.ImageSizeMode.ScaleProportional;
-            this.pictureBox1.Value = ((object)(resources.GetObject("pictureBox1.Value")));
-            // 
             // pageHeaderSection1
             // 
             this.pageHeaderSection1.Height = Telerik.Reporting.Drawing.Unit.Inch(0.4724409282207489D);
             this.pageHeaderSection1.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
             this.lbOrderType,
-            this.pictureBox1,
             this.txtConsignIndex,
-            this.txtType});
+            this.txtType,
+            this.pictureBox1});
             this.pageHeaderSection1.Name = "pageHeaderSection1";
             this.pageHeaderSection1.Style.Padding.Top = Telerik.Reporting.Drawing.Unit.Cm(0D);
             // 
@@ -700,6 +691,15 @@ namespace ReportTemplates.Transport
             this.txtRemark.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
             this.txtRemark.StyleName = "";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(15.378447532653809D), Telerik.Reporting.Drawing.Unit.Cm(0.099999748170375824D));
+            this.pictureBox1.MimeType = "image/jpeg";
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.6000008583068848D), Telerik.Reporting.Drawing.Unit.Cm(1.0000001192092896D));
+            this.pictureBox1.Sizing = Telerik.Reporting.Drawing.ImageSizeMode.ScaleProportional;
+            this.pictureBox1.Value = ((object)(resources.GetObject("pictureBox1.Value")));
+            // 
             // AfterServicePickUpOrder
             // 
             this.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
@@ -727,7 +727,6 @@ namespace ReportTemplates.Transport
 
         private Telerik.Reporting.DetailSection detail;
         private Telerik.Reporting.TextBox lbOrderType;
-        private Telerik.Reporting.PictureBox pictureBox1;
         private Telerik.Reporting.PageHeaderSection pageHeaderSection1;
         private Telerik.Reporting.TextBox txtConsignIndex;
         private Telerik.Reporting.PageFooterSection pageFooterSection1;
@@ -771,5 +770,6 @@ namespace ReportTemplates.Transport
         private Telerik.Reporting.TextBox txtNeedPay;
         private Telerik.Reporting.TextBox textBox7;
         private Telerik.Reporting.TextBox txtSmOrder;
+        private Telerik.Reporting.PictureBox pictureBox1;
     }
 }

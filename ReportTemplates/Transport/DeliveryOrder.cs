@@ -33,6 +33,7 @@ namespace ReportTemplates.Transport
             txtConsignIndex.Value = deliveryOrder.waybill_sort.ToString();
 
             tDealerOrder.Value = deliveryOrder.related_no;
+            txtBoxInfo.Value = "¹² " + deliveryOrder.box_count + " ¼þ";
 
             tRegoin.Value = deliveryOrder.location_prefix;
             tReciver.Value = deliveryOrder.location_consignee;
@@ -48,7 +49,7 @@ namespace ReportTemplates.Transport
 
             List<object> dataSource = new List<object>();
             int index = 1;
-            foreach (var i in deliveryOrder.item)
+            foreach (var i in deliveryOrder.data)
             {
                 dataSource.Add(
                         new

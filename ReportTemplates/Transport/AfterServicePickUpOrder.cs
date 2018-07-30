@@ -43,7 +43,7 @@ namespace ReportTemplates.Transport
 
             List<object> dataSource = new List<object>();
             int index = 1;
-            foreach (var orderItem in deliverOrder.aitem)
+            foreach (var orderItem in deliverOrder.data)
             {
                 dataSource.Add(new
                 {

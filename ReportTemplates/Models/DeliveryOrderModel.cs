@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ReportTemplates.Transport;
 
 namespace ReportTemplates.Models
 {
 
-    public class DeliveryOrderModel
+    public class DeliveryOrderModel : PrintModel
     {
         public string delivery_no { get; set; }
         public int dealer_order_id { get; set; }
@@ -22,9 +23,16 @@ namespace ReportTemplates.Models
         public string detrusion_no { get; set; }
         public int box_count { get; set; }
         public int print_interval { get; set; }
+        public override string GenerateFile()
+        {
+            DeliveryOrder p = new DeliveryOrder();
+            p.SetDateSource(this);
+            return this.ExportPdf(p);
+        }
+
         public string total_money { get; set; }
         public string discount { get; set; }
-        public dItem[] item { get; set; }
+        public dItem[] data { get; set; }
     }
 
     public class dItem
