@@ -96,6 +96,9 @@
     <EmbeddedResource Include="Properties\Resource1.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Transport\WaybillTask.resx">
+      <DependentUpon>WaybillTask.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

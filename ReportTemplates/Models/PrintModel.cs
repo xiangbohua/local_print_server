@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ReportTemplates.Transport;
 using Telerik.Reporting;
 
 namespace ReportTemplates.Models
@@ -18,6 +19,7 @@ namespace ReportTemplates.Models
         public abstract string GenerateFile();
 
         public static string FileSavePath = Environment.CurrentDirectory + "\\PrintFiles";
+        
 
         protected string ExportPdf(IReportDocument report)
         {

@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ReportTemplates.Transport;
 
 namespace ReportTemplates.Models
 {
-    public class AfterServicePickUpOrderModel
+    public class AfterServicePickUpOrderModel : PrintModel
     { 
         public string title { get; set; }
         public string delivery_no { get; set; }
@@ -25,6 +26,13 @@ namespace ReportTemplates.Models
         public string pay_money { get; set; }
         public string remark { get; set; }
         public int print_interval { get; set; }
+        public override string GenerateFile()
+        {
+            AfterServicePickUpOrder print = new AfterServicePickUpOrder();
+            print.SetDateSource(this);
+            return this.ExportPdf(print);
+        }
+
         public Aitem[] aitem { get; set; }
     }
 

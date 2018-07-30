@@ -247,5 +247,11 @@ namespace LocalPrintServer
                 MessageBox.Show("清理文件失败", "清理文件");
             }
         }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            PrintServer.SetPrintNow(rbPrintNow.Checked);
+            
+        }
     }
 }

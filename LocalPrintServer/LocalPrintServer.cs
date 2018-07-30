@@ -38,6 +38,7 @@ namespace LocalPrintServer
 
         private bool PrintNow = true;
 
+        private bool _requestStop = false;
         private int totalDocument = 0;
         private int succeedDocument = 0;
         private int errorDocument = 0;
@@ -110,6 +111,7 @@ namespace LocalPrintServer
         {
             if (!ServerThread.IsAlive)
             {
+                this._requestStop = false;
                 ServerThread.Start();
                 StartSerialPrintThread();
                 SafeFireLoging("服务线程已启动，正在尝试打开服务..." );
@@ -140,6 +142,8 @@ namespace LocalPrintServer
             {
                 HttpServer.Stop();
                 HttpServer?.Stop();
+                _requestStop = true;
+                this.printEvent.Set();
                 SafeFireLoging("服务已停止");
             }
             catch (Exception ex)
@@ -214,7 +218,7 @@ namespace LocalPrintServer
 
         private void SerialPrintThread()
         {
-            while (true)
+            while (true && !this._requestStop)
             {
                 PrintModel nextModl = ModelMaper.PopAJob();
                 if (nextModl != null)
@@ -227,6 +231,11 @@ namespace LocalPrintServer
                     printEvent.WaitOne();
                 }
             }
+        }
+
+        public void StopSerialPrint()
+        {
+            printEvent.Set();
         }
 
         private void DoPrintJobWithModel(PrintModel model)

@@ -31,17 +31,17 @@ namespace ReportTemplates.Transport
         {
             List<object> dataSource = new List<object>();
 
-            foreach (var o in wayBillOrder.items)
+            foreach (var o in wayBillOrder.data)
             {
                 dataSource.Add(new
                 {
-                    o.type,
-                    o.related_no,
-                    o.waybill_sort,
-                    o.location_address,
-                    o.location_consignee,
-                    o.location_consignee_mobile,
-                    o.remark,
+                    OrderTypeString = o.type,
+                    Order_NO = o.related_no,
+                    Waybill_Sort = o.waybill_sort,
+                    Location_Address = o.location_address,
+                    Location_Consignee = o.location_consignee,
+                    Location_Consignee_Mobile = o.location_consignee_mobile,
+                    Remark = o.remark,
                     Box_Info = o.box_count,
                     StoreName = o.name
                 });
@@ -52,6 +52,6 @@ namespace ReportTemplates.Transport
             table2.DataSource = dataSource;
         }
 
-
+        
     }
 }

@@ -10,3 +10,4 @@ C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\obj\Debug\R
 C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\obj\Debug\ReportTemplates.dll
 C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\obj\Debug\ReportTemplates.pdb
 C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Alex\Desktop\RuiguProjects\LocalPrintServer\ReportTemplates\obj\Debug\ReportTemplates.Transport.WaybillTask.resources

@@ -27,7 +27,7 @@ namespace ReportTemplates.Transport
             //
         }
 
-        public bool SetDateSource(WaybillTaskListModel model)
+        public void SetDateSource(WaybillTaskListModel model)
         {
 
             int splitNo = model.data.Length / 2;
@@ -56,7 +56,7 @@ namespace ReportTemplates.Transport
 
             table1.DataSource = dataSource1;
             table2.DataSource = dataSource2;
-            return true;
         }
+        
     }
 }

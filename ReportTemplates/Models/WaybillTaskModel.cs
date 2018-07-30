@@ -9,7 +9,7 @@ namespace ReportTemplates.Models
     public class WaybillTaskModel : PrintModel
     {
         public string order_number { get; set; }
-        public Item[] items { get; set; }
+        public Item[] data { get; set; }
         public override string GenerateFile()
         {
             WaybillTask pp = new WaybillTask();
@@ -17,6 +17,7 @@ namespace ReportTemplates.Models
 
             return this.ExportPdf(pp);
         }
+        
     }
 
     public class Item

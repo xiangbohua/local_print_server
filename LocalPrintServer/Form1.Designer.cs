@@ -46,8 +46,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbPrintManual = new System.Windows.Forms.RadioButton();
+            this.rbPrintNow = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -207,8 +207,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.rbPrintManual);
+            this.groupBox1.Controls.Add(this.rbPrintNow);
             this.groupBox1.Location = new System.Drawing.Point(359, 368);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(155, 47);
@@ -216,27 +216,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "打印方式?";
             // 
-            // radioButton1
+            // rbPrintManual
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(15, 19);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(49, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "立即";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbPrintManual.AutoSize = true;
+            this.rbPrintManual.Location = new System.Drawing.Point(92, 19);
+            this.rbPrintManual.Name = "rbPrintManual";
+            this.rbPrintManual.Size = new System.Drawing.Size(49, 17);
+            this.rbPrintManual.TabIndex = 1;
+            this.rbPrintManual.Text = "手动";
+            this.rbPrintManual.UseVisualStyleBackColor = true;
+            this.rbPrintManual.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // radioButton2
+            // rbPrintNow
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(92, 19);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(49, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "手动";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbPrintNow.AutoSize = true;
+            this.rbPrintNow.Checked = true;
+            this.rbPrintNow.Location = new System.Drawing.Point(15, 19);
+            this.rbPrintNow.Name = "rbPrintNow";
+            this.rbPrintNow.Size = new System.Drawing.Size(49, 17);
+            this.rbPrintNow.TabIndex = 0;
+            this.rbPrintNow.TabStop = true;
+            this.rbPrintNow.Text = "立即";
+            this.rbPrintNow.UseVisualStyleBackColor = true;
+            this.rbPrintNow.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // Form1
             // 
@@ -291,8 +293,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbPrintManual;
+        private System.Windows.Forms.RadioButton rbPrintNow;
     }
 }
 
