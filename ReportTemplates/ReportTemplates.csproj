@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="BusinessObjectExporter.cs" />
     <Compile Include="IAutoPrintTemplate.cs" />
+    <Compile Include="Models\AfterSaleLabelModel.cs" />
     <Compile Include="Models\AfterServicePickUpOrderModel.cs" />
     <Compile Include="Models\DeliveryOrderModel.cs" />
     <Compile Include="Models\ModelMaper.cs" />
@@ -74,6 +75,12 @@
     </Compile>
     <Compile Include="Transport\DeliveryOrder.Designer.cs">
       <DependentUpon>DeliveryOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\PickOrderProductLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Transport\PickOrderProductLabel.Designer.cs">
+      <DependentUpon>PickOrderProductLabel.cs</DependentUpon>
     </Compile>
     <Compile Include="Transport\WaybillTask.cs">
       <SubType>Component</SubType>
@@ -101,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Transport\DeliveryOrder.resx">
       <DependentUpon>DeliveryOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\PickOrderProductLabel.resx">
+      <DependentUpon>PickOrderProductLabel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transport\WaybillTask.resx">
       <DependentUpon>WaybillTask.cs</DependentUpon>
