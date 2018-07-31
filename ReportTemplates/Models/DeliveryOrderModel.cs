@@ -22,7 +22,6 @@ namespace ReportTemplates.Models
         public string location_consignee_mobile { get; set; }
         public string detrusion_no { get; set; }
         public int box_count { get; set; }
-        public int print_interval { get; set; }
         public override string GenerateFile()
         {
             DeliveryOrder p = new DeliveryOrder();

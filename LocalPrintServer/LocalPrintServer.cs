@@ -182,7 +182,7 @@ namespace LocalPrintServer
                 return "添加任务失败！";
             }
         }
-
+        private object _locker = new object();
         private void PrintWithThread(object objectPara)
         {
             try
@@ -199,6 +199,7 @@ namespace LocalPrintServer
                     }
                     else
                     {
+                        //this.SafeFireLoging("收到请求:" + model.file_name);
                         DoPrintJonWithModelSerial(model);
                     }
                 }
