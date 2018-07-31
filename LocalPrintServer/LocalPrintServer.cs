@@ -194,12 +194,11 @@ namespace LocalPrintServer
                     PrintModel model = ModelMaper.GetPrintModel(httpRequest.Body);
                     if (model.print_interval <= 0)
                     {
-                        //同步乱序打印
+                        //不要求顺序打印
                         DoPrintJobWithModel(model);
                     }
                     else
                     {
-                        //this.SafeFireLoging("收到请求:" + model.file_name);
                         DoPrintJonWithModelSerial(model);
                     }
                 }
@@ -244,22 +243,22 @@ namespace LocalPrintServer
             string filePath = model.GenerateFile();
 
             string shortFile = Path.GetFileName(filePath);
-            SafeFireLoging("文件生成成功：" + shortFile);
 
             if (this.PrintNow)
             {
                 if (!string.IsNullOrEmpty(this.selectedPrinterName))
                 {
                     PrintFile(filePath);
+                    SafeFireLoging("生成文件成功！已发送到打印机：" + shortFile);
                 }
                 else
                 {
-                    SafeFireLoging("当前尚未选择打印机, 请选择打印机或者点击查看文件");
+                    SafeFireLoging("生成文件成功！当前尚未选择打印机：" + shortFile);
                 }
             }
             else
             {
-                SafeFireLoging("文件未发送到打印机，您选择仅生成文件");
+                SafeFireLoging("生成文件成功:" + shortFile);
             }
         }
 
@@ -325,7 +324,6 @@ namespace LocalPrintServer
             {
                 this.OpenFile(shortFile);
                 this.succeedDocument ++;
-                SafeFireLoging("已发送到打印机：" + shortFile);
             }
             catch (Exception ex)
             {
