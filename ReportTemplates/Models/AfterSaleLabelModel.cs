@@ -17,6 +17,7 @@ namespace ReportTemplates.Models
         public string region { get; set; }
         public string qrcode { get; set; }
         public string unit_name { get; set; }
+        public string type_name { get; set; }
 
         public override string GenerateFile()
         {

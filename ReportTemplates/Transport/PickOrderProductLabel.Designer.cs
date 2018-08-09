@@ -24,6 +24,7 @@ namespace ReportTemplates.Transport
             this.txtRegion = new Telerik.Reporting.TextBox();
             this.txtSubFix = new Telerik.Reporting.TextBox();
             this.pictureBox2 = new Telerik.Reporting.PictureBox();
+            this.txtTypeName = new Telerik.Reporting.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // detail
@@ -40,7 +41,8 @@ namespace ReportTemplates.Transport
             this.tUuid,
             this.txtRegion,
             this.txtSubFix,
-            this.pictureBox2});
+            this.pictureBox2,
+            this.txtTypeName});
             this.detail.Name = "detail";
             this.detail.Style.BorderStyle.Bottom = Telerik.Reporting.Drawing.BorderType.None;
             this.detail.Style.BorderStyle.Left = Telerik.Reporting.Drawing.BorderType.None;
@@ -69,7 +71,7 @@ namespace ReportTemplates.Transport
             // 
             this.txtProductCode.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.2000001072883606D), Telerik.Reporting.Drawing.Unit.Cm(1.3000000715255737D));
             this.txtProductCode.Name = "txtProductCode";
-            this.txtProductCode.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.9000000953674316D), Telerik.Reporting.Drawing.Unit.Cm(0.29999977350234985D));
+            this.txtProductCode.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.899999737739563D), Telerik.Reporting.Drawing.Unit.Cm(0.29999977350234985D));
             this.txtProductCode.Style.Font.Name = "Microsoft YaHei";
             this.txtProductCode.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(6D);
             this.txtProductCode.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
@@ -163,6 +165,17 @@ namespace ReportTemplates.Transport
             this.pictureBox2.Sizing = Telerik.Reporting.Drawing.ImageSizeMode.ScaleProportional;
             this.pictureBox2.Value = ((object)(resources.GetObject("pictureBox2.Value")));
             // 
+            // txtTypeName
+            // 
+            this.txtTypeName.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(2.4000000953674316D), Telerik.Reporting.Drawing.Unit.Cm(1.3000001907348633D));
+            this.txtTypeName.Name = "txtTypeName";
+            this.txtTypeName.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(0.79980003833770752D), Telerik.Reporting.Drawing.Unit.Cm(0.29999977350234985D));
+            this.txtTypeName.Style.Font.Name = "Microsoft YaHei";
+            this.txtTypeName.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(6D);
+            this.txtTypeName.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
+            this.txtTypeName.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
+            this.txtTypeName.Value = "=type_name";
+            // 
             // PickOrderProductLabel
             // 
             this.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
@@ -198,5 +211,6 @@ namespace ReportTemplates.Transport
         private Telerik.Reporting.TextBox txtRegion;
         private Telerik.Reporting.TextBox txtSubFix;
         private Telerik.Reporting.PictureBox pictureBox2;
+        private Telerik.Reporting.TextBox txtTypeName;
     }
 }

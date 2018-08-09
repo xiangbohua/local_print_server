@@ -9,6 +9,7 @@ namespace ReportTemplates.Models
 
     public class DeliveryOrderModel : PrintModel
     {
+        public string mark { get; set; }
         public string delivery_no { get; set; }
         public int dealer_order_id { get; set; }
         public int waybill_sort { get; set; }

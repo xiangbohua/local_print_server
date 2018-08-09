@@ -20,6 +20,7 @@ namespace ReportTemplates.Transport
             Telerik.Reporting.TableGroup tableGroup9 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup10 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup11 = new Telerik.Reporting.TableGroup();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryOrder));
             Telerik.Reporting.Barcodes.CodabarEncoder codabarEncoder1 = new Telerik.Reporting.Barcodes.CodabarEncoder();
             Telerik.Reporting.TableGroup tableGroup12 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup13 = new Telerik.Reporting.TableGroup();
@@ -42,7 +43,6 @@ namespace ReportTemplates.Transport
             Telerik.Reporting.TableGroup tableGroup30 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup31 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup32 = new Telerik.Reporting.TableGroup();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliveryOrder));
             Telerik.Reporting.Drawing.StyleRule styleRule1 = new Telerik.Reporting.Drawing.StyleRule();
             this.textBox20 = new Telerik.Reporting.TextBox();
             this.textBox11 = new Telerik.Reporting.TextBox();
@@ -82,6 +82,7 @@ namespace ReportTemplates.Transport
             this.pageHeaderSection1 = new Telerik.Reporting.PageHeaderSection();
             this.txtConsignIndex = new Telerik.Reporting.TextBox();
             this.txtBoxInfo = new Telerik.Reporting.TextBox();
+            this.pictureBox1 = new Telerik.Reporting.PictureBox();
             this.txtPageInfo = new Telerik.Reporting.TextBox();
             this.txtPageInfoNumber = new Telerik.Reporting.TextBox();
             this.textBox4 = new Telerik.Reporting.TextBox();
@@ -105,7 +106,7 @@ namespace ReportTemplates.Transport
             this.textBox8 = new Telerik.Reporting.TextBox();
             this.txtWaybillNo = new Telerik.Reporting.TextBox();
             this.textBox10 = new Telerik.Reporting.TextBox();
-            this.pictureBox1 = new Telerik.Reporting.PictureBox();
+            this.txtMark = new Telerik.Reporting.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // textBox20
@@ -566,7 +567,8 @@ namespace ReportTemplates.Transport
             this.textBox1,
             this.txtConsignIndex,
             this.txtBoxInfo,
-            this.pictureBox1});
+            this.pictureBox1,
+            this.txtMark});
             this.pageHeaderSection1.Name = "pageHeaderSection1";
             this.pageHeaderSection1.Style.Padding.Top = Telerik.Reporting.Drawing.Unit.Cm(0D);
             // 
@@ -574,7 +576,7 @@ namespace ReportTemplates.Transport
             // 
             this.txtConsignIndex.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0D), Telerik.Reporting.Drawing.Unit.Cm(0.49999991059303284D));
             this.txtConsignIndex.Name = "txtConsignIndex";
-            this.txtConsignIndex.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.8899999856948853D), Telerik.Reporting.Drawing.Unit.Cm(0.60000002384185791D));
+            this.txtConsignIndex.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.5D), Telerik.Reporting.Drawing.Unit.Cm(0.60000002384185791D));
             this.txtConsignIndex.Style.Font.Name = "Microsoft YaHei";
             this.txtConsignIndex.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(13D);
             this.txtConsignIndex.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
@@ -583,13 +585,22 @@ namespace ReportTemplates.Transport
             // 
             // txtBoxInfo
             // 
-            this.txtBoxInfo.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.796275794506073D), Telerik.Reporting.Drawing.Unit.Inch(0.19688974320888519D));
+            this.txtBoxInfo.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Inch(0.59062987565994263D), Telerik.Reporting.Drawing.Unit.Inch(0.19688974320888519D));
             this.txtBoxInfo.Name = "txtBoxInfo";
-            this.txtBoxInfo.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.3757994174957275D), Telerik.Reporting.Drawing.Unit.Cm(0.60000002384185791D));
+            this.txtBoxInfo.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Inch(1.0160385370254517D), Telerik.Reporting.Drawing.Unit.Cm(0.60000002384185791D));
             this.txtBoxInfo.Style.Font.Name = "Microsoft YaHei";
             this.txtBoxInfo.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
             this.txtBoxInfo.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
             this.txtBoxInfo.Value = "件数";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(15.000000953674316D), Telerik.Reporting.Drawing.Unit.Cm(0.2999996542930603D));
+            this.pictureBox1.MimeType = "image/jpeg";
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.6000008583068848D), Telerik.Reporting.Drawing.Unit.Cm(1.0000001192092896D));
+            this.pictureBox1.Sizing = Telerik.Reporting.Drawing.ImageSizeMode.ScaleProportional;
+            this.pictureBox1.Value = ((object)(resources.GetObject("pictureBox1.Value")));
             // 
             // txtPageInfo
             // 
@@ -939,14 +950,16 @@ namespace ReportTemplates.Transport
             this.textBox10.StyleName = "";
             this.textBox10.Value = "装车单号：";
             // 
-            // pictureBox1
+            // txtMark
             // 
-            this.pictureBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(15.000000953674316D), Telerik.Reporting.Drawing.Unit.Cm(0.2999996542930603D));
-            this.pictureBox1.MimeType = "image/jpeg";
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.6000008583068848D), Telerik.Reporting.Drawing.Unit.Cm(1.0000001192092896D));
-            this.pictureBox1.Sizing = Telerik.Reporting.Drawing.ImageSizeMode.ScaleProportional;
-            this.pictureBox1.Value = ((object)(resources.GetObject("pictureBox1.Value")));
+            this.txtMark.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(4.0811381340026855D), Telerik.Reporting.Drawing.Unit.Cm(0.50009989738464355D));
+            this.txtMark.Name = "txtMark";
+            this.txtMark.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.5D), Telerik.Reporting.Drawing.Unit.Cm(0.60000002384185791D));
+            this.txtMark.Style.Font.Name = "Microsoft YaHei";
+            this.txtMark.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(13D);
+            this.txtMark.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
+            this.txtMark.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
+            this.txtMark.Value = "=Mark";
             // 
             // DeliveryOrder
             // 
@@ -1035,5 +1048,6 @@ namespace ReportTemplates.Transport
         private Telerik.Reporting.Barcode bcOrderNumber;
         private Telerik.Reporting.TextBox textBox38;
         private Telerik.Reporting.PictureBox pictureBox1;
+        private Telerik.Reporting.TextBox txtMark;
     }
 }

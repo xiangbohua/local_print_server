@@ -38,7 +38,7 @@ namespace ReportTemplates.Transport
             barcode1.Value = d.qrcode;
             txtRegion.Value = d.region;
             tUuid.Value = d.uuid;
-
+            txtTypeName.Value = d.type_name;
         }
     }
 }

@@ -46,6 +46,7 @@ namespace ReportTemplates.Transport
             tTotal.Value = deliveryOrder.total_money;
             bcOrderNumber.Value = deliveryOrder.related_no;
             tSM.Value = deliveryOrder.detrusion_no;
+            txtMark.Value = deliveryOrder.mark;
 
             List<object> dataSource = new List<object>();
             int index = 1;
