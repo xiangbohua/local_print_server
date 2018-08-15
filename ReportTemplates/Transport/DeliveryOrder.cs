@@ -39,11 +39,11 @@ namespace ReportTemplates.Transport
             tReciver.Value = deliveryOrder.location_consignee;
             tContact.Value = deliveryOrder.location_consignee_mobile;
             tAddress.Value = deliveryOrder.location_address;
-            txtDiscount.Value = deliveryOrder.discount;
+            txtDiscount.Value = deliveryOrder.discount.ToString();
 
-            txtDueMoney.Value = deliveryOrder.total_money;
+            txtDueMoney.Value = (deliveryOrder.total_money - deliveryOrder.discount).ToString();
             txtWaybillNo.Value = deliveryOrder.waybill_no;
-            tTotal.Value = deliveryOrder.total_money;
+            tTotal.Value = deliveryOrder.total_money.ToString();
             bcOrderNumber.Value = deliveryOrder.related_no;
             tSM.Value = deliveryOrder.detrusion_no;
             txtMark.Value = deliveryOrder.mark;

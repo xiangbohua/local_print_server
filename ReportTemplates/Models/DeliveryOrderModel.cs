@@ -30,8 +30,8 @@ namespace ReportTemplates.Models
             return this.ExportPdf(p);
         }
 
-        public string total_money { get; set; }
-        public string discount { get; set; }
+        public decimal total_money { get; set; }
+        public decimal discount { get; set; }
         public dItem[] data { get; set; }
     }
 
