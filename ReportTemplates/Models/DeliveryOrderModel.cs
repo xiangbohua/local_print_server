@@ -23,6 +23,17 @@ namespace ReportTemplates.Models
         public string location_consignee_mobile { get; set; }
         public string detrusion_no { get; set; }
         public int box_count { get; set; }
+        public string pay_money { get; set; }
+
+        public string paidMoney { get; set; }
+        public string deliveFee { get; set; }
+        public string order_tip { get; set; }
+        public string product_total { get; set; }
+        public string total_this_order { get; set; }
+        public string coupon { get; set; }
+        public string other_discount { get; set; }
+        public string pay_money_string { get; set; }
+
         public override string GenerateFile()
         {
             DeliveryOrder p = new DeliveryOrder();
@@ -30,7 +41,7 @@ namespace ReportTemplates.Models
             return this.ExportPdf(p);
         }
 
-        public decimal total_money { get; set; }
+        public decimal totalMoney { get; set; }
         public decimal discount { get; set; }
         public dItem[] data { get; set; }
     }
@@ -42,10 +53,7 @@ namespace ReportTemplates.Models
         public string product_name { get; set; }
         public string unit { get; set; }
         public int buy_qty { get; set; }
-        public string volume { get; set; }
-        public string weight { get; set; }
-        public string origin_price { get; set; }
-        public string pro_price { get; set; }
+        public string price { get; set; }
         public float total { get; set; }
         public int actual { get; set; }
     }

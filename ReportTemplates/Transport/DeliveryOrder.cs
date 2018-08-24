@@ -34,19 +34,27 @@ namespace ReportTemplates.Transport
 
             tDealerOrder.Value = deliveryOrder.related_no;
             txtBoxInfo.Value = "¹² " + deliveryOrder.box_count + " ¼þ";
+            txtDeliveyTip.Value = deliveryOrder.order_tip;
 
             tRegoin.Value = deliveryOrder.location_prefix;
             tReciver.Value = deliveryOrder.location_consignee;
             tContact.Value = deliveryOrder.location_consignee_mobile;
             tAddress.Value = deliveryOrder.location_address;
-            txtDiscount.Value = deliveryOrder.discount.ToString();
+            txtPayThisOrderTop.Value = deliveryOrder.pay_money;
 
-            txtDueMoney.Value = (deliveryOrder.total_money - deliveryOrder.discount).ToString();
+            txtPayed.Value = deliveryOrder.paidMoney;
             txtWaybillNo.Value = deliveryOrder.waybill_no;
-            tTotal.Value = deliveryOrder.total_money.ToString();
-            bcOrderNumber.Value = deliveryOrder.related_no;
+            tTotal.Value = deliveryOrder.totalMoney.ToString();
+            bcOrderNumber.Value = deliveryOrder.detrusion_no;
             tSM.Value = deliveryOrder.detrusion_no;
             txtMark.Value = deliveryOrder.mark;
+
+            txtProductMoney.Value = deliveryOrder.product_total;
+            txtOtherDiscount.Value = deliveryOrder.other_discount;
+            txtTotalThisOrder.Value = deliveryOrder.total_this_order;
+            txtDeliveryFee.Value = deliveryOrder.deliveFee;
+            txtCoupon.Value = deliveryOrder.coupon;
+            txtPayThisOrder.Value = deliveryOrder.pay_money_string;
 
             List<object> dataSource = new List<object>();
             int index = 1;
@@ -62,10 +70,7 @@ namespace ReportTemplates.Transport
                             MinUnitQuantity = i.buy_qty,
                             GiftAmountMin = 0,
                             DcReportedQty = i.actual,
-                            Volume = i.volume,
-                            Weight = i.weight,
-                            ProductPrice = i.origin_price,
-                            Promotion_Price = i.pro_price,
+                            ProductPrice = i.price,
                             PriceCount = i.total
                         });
             }
