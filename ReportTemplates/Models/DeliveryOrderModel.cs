@@ -53,6 +53,7 @@ namespace ReportTemplates.Models
         public string product_name { get; set; }
         public string unit { get; set; }
         public int buy_qty { get; set; }
+        public string is_gift { get; set; }
         public string price { get; set; }
         public float total { get; set; }
         public int actual { get; set; }

@@ -68,7 +68,7 @@ namespace ReportTemplates.Transport
                             ProductName = i.product_name,
                             ProductUnit = i.unit,
                             MinUnitQuantity = i.buy_qty,
-                            GiftAmountMin = 0,
+                            IsGift = i.is_gift,
                             DcReportedQty = i.actual,
                             ProductPrice = i.price,
                             PriceCount = i.total

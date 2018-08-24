@@ -73,7 +73,7 @@ namespace ReportTemplates.Transport
             this.textBox30 = new Telerik.Reporting.TextBox();
             this.textBox28 = new Telerik.Reporting.TextBox();
             this.textBox32 = new Telerik.Reporting.TextBox();
-            this.textBox34 = new Telerik.Reporting.TextBox();
+            this.txtIsGift = new Telerik.Reporting.TextBox();
             this.textBox1 = new Telerik.Reporting.TextBox();
             this.pageHeaderSection1 = new Telerik.Reporting.PageHeaderSection();
             this.txtConsignIndex = new Telerik.Reporting.TextBox();
@@ -373,15 +373,15 @@ namespace ReportTemplates.Transport
             // 
             // table1
             // 
-            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(1.1820988655090332D)));
+            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(1.1820989847183228D)));
             this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(2.6423134803771973D)));
-            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(4.5852046012878418D)));
+            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(4.585205078125D)));
             this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(1.3212450742721558D)));
-            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(1.7754337787628174D)));
+            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(1.7754338979721069D)));
             this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(1.8820314407348633D)));
             this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(1.8689769506454468D)));
-            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Inch(0.83371037244796753D)));
-            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Inch(0.79727238416671753D)));
+            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Inch(0.83371031284332275D)));
+            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Inch(0.79727232456207275D)));
             this.table1.Body.Rows.Add(new Telerik.Reporting.TableBodyRow(Telerik.Reporting.Drawing.Unit.Inch(0.34207415580749512D)));
             this.table1.Body.SetCellContent(0, 0, this.textBox9);
             this.table1.Body.SetCellContent(0, 1, this.textBox14);
@@ -391,7 +391,7 @@ namespace ReportTemplates.Transport
             this.table1.Body.SetCellContent(0, 6, this.textBox30);
             this.table1.Body.SetCellContent(0, 7, this.textBox28);
             this.table1.Body.SetCellContent(0, 8, this.textBox32);
-            this.table1.Body.SetCellContent(0, 5, this.textBox34);
+            this.table1.Body.SetCellContent(0, 5, this.txtIsGift);
             tableGroup1.Name = "tableGroup";
             tableGroup1.ReportItem = this.textBox20;
             tableGroup2.Name = "tableGroup1";
@@ -426,7 +426,7 @@ namespace ReportTemplates.Transport
             this.textBox24,
             this.textBox19,
             this.textBox17,
-            this.textBox34,
+            this.txtIsGift,
             this.textBox30,
             this.textBox28,
             this.textBox32,
@@ -538,16 +538,16 @@ namespace ReportTemplates.Transport
             this.textBox32.StyleName = "";
             this.textBox32.Value = "=PriceCount";
             // 
-            // textBox34
+            // txtIsGift
             // 
-            this.textBox34.Name = "textBox34";
-            this.textBox34.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.8820314407348633D), Telerik.Reporting.Drawing.Unit.Inch(0.34207415580749512D));
-            this.textBox34.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
-            this.textBox34.Style.Font.Name = "Microsoft YaHei";
-            this.textBox34.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
-            this.textBox34.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
-            this.textBox34.StyleName = "";
-            this.textBox34.Value = "·ñ";
+            this.txtIsGift.Name = "txtIsGift";
+            this.txtIsGift.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.8820314407348633D), Telerik.Reporting.Drawing.Unit.Inch(0.34207415580749512D));
+            this.txtIsGift.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
+            this.txtIsGift.Style.Font.Name = "Microsoft YaHei";
+            this.txtIsGift.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
+            this.txtIsGift.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
+            this.txtIsGift.StyleName = "";
+            this.txtIsGift.Value = "=IsGift";
             // 
             // textBox1
             // 
@@ -1220,7 +1220,7 @@ namespace ReportTemplates.Transport
         private Telerik.Reporting.TextBox textBox17;
         private Telerik.Reporting.TextBox textBox30;
         private Telerik.Reporting.TextBox textBox28;
-        private Telerik.Reporting.TextBox textBox34;
+        private Telerik.Reporting.TextBox txtIsGift;
         private Telerik.Reporting.TextBox textBox26;
         private Telerik.Reporting.TextBox textBox35;
         private Telerik.Reporting.TextBox textBox32;

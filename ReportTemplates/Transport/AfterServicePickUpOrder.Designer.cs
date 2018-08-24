@@ -15,6 +15,7 @@ namespace ReportTemplates.Transport
             Telerik.Reporting.TableGroup tableGroup4 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup5 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup6 = new Telerik.Reporting.TableGroup();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AfterServicePickUpOrder));
             Telerik.Reporting.TableGroup tableGroup7 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup8 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup9 = new Telerik.Reporting.TableGroup();
@@ -31,7 +32,6 @@ namespace ReportTemplates.Transport
             Telerik.Reporting.TableGroup tableGroup20 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup21 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup22 = new Telerik.Reporting.TableGroup();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AfterServicePickUpOrder));
             Telerik.Reporting.Drawing.StyleRule styleRule1 = new Telerik.Reporting.Drawing.StyleRule();
             this.textBox20 = new Telerik.Reporting.TextBox();
             this.textBox11 = new Telerik.Reporting.TextBox();
@@ -57,6 +57,7 @@ namespace ReportTemplates.Transport
             this.pageHeaderSection1 = new Telerik.Reporting.PageHeaderSection();
             this.txtConsignIndex = new Telerik.Reporting.TextBox();
             this.txtType = new Telerik.Reporting.TextBox();
+            this.pictureBox1 = new Telerik.Reporting.PictureBox();
             this.txtPageInfo = new Telerik.Reporting.TextBox();
             this.txtPageInfoNumber = new Telerik.Reporting.TextBox();
             this.textBox4 = new Telerik.Reporting.TextBox();
@@ -78,13 +79,12 @@ namespace ReportTemplates.Transport
             this.txtSmOrder = new Telerik.Reporting.TextBox();
             this.textBox5 = new Telerik.Reporting.TextBox();
             this.txtRemark = new Telerik.Reporting.TextBox();
-            this.pictureBox1 = new Telerik.Reporting.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // textBox20
             // 
             this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.5159391164779663D), Telerik.Reporting.Drawing.Unit.Inch(0.29166674613952637D));
+            this.textBox20.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.5159389972686768D), Telerik.Reporting.Drawing.Unit.Inch(0.19791674613952637D));
             this.textBox20.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox20.Style.Font.Name = "Microsoft YaHei";
             this.textBox20.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
@@ -95,7 +95,7 @@ namespace ReportTemplates.Transport
             // textBox11
             // 
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.6640770435333252D), Telerik.Reporting.Drawing.Unit.Inch(0.29166674613952637D));
+            this.textBox11.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.6640768051147461D), Telerik.Reporting.Drawing.Unit.Inch(0.19791674613952637D));
             this.textBox11.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox11.Style.Font.Name = "Microsoft YaHei";
             this.textBox11.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
@@ -105,7 +105,7 @@ namespace ReportTemplates.Transport
             // textBox23
             // 
             this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.3545026779174805D), Telerik.Reporting.Drawing.Unit.Inch(0.29166674613952637D));
+            this.textBox23.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.3545022010803223D), Telerik.Reporting.Drawing.Unit.Inch(0.19791674613952637D));
             this.textBox23.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox23.Style.Font.Name = "Microsoft YaHei";
             this.textBox23.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
@@ -116,7 +116,7 @@ namespace ReportTemplates.Transport
             // textBox33
             // 
             this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.8439280986785889D), Telerik.Reporting.Drawing.Unit.Inch(0.29166674613952637D));
+            this.textBox33.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.8439280986785889D), Telerik.Reporting.Drawing.Unit.Inch(0.19791674613952637D));
             this.textBox33.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox33.Style.Font.Name = "Microsoft YaHei";
             this.textBox33.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
@@ -127,7 +127,7 @@ namespace ReportTemplates.Transport
             // textBox16
             // 
             this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.8215515613555908D), Telerik.Reporting.Drawing.Unit.Inch(0.29166674613952637D));
+            this.textBox16.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.8215515613555908D), Telerik.Reporting.Drawing.Unit.Inch(0.19791674613952637D));
             this.textBox16.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox16.Style.Font.Name = "Microsoft YaHei";
             this.textBox16.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
@@ -139,7 +139,7 @@ namespace ReportTemplates.Transport
             // textBox2
             // 
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.2633576393127441D), Telerik.Reporting.Drawing.Unit.Cm(0.43352276086807251D));
+            this.textBox2.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.2633576393127441D), Telerik.Reporting.Drawing.Unit.Cm(0.5346941351890564D));
             this.textBox2.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox2.Style.Font.Name = "Microsoft YaHei";
             this.textBox2.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -151,7 +151,7 @@ namespace ReportTemplates.Transport
             // textBox25
             // 
             this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.2633576393127441D), Telerik.Reporting.Drawing.Unit.Cm(0.431535929441452D));
+            this.textBox25.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.2633576393127441D), Telerik.Reporting.Drawing.Unit.Cm(0.41562581062316895D));
             this.textBox25.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox25.Style.Font.Name = "Microsoft YaHei";
             this.textBox25.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -163,7 +163,7 @@ namespace ReportTemplates.Transport
             // tCustomerName
             // 
             this.tCustomerName.Name = "tCustomerName";
-            this.tCustomerName.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.48359489440918D), Telerik.Reporting.Drawing.Unit.Cm(0.43352276086807251D));
+            this.tCustomerName.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.48359489440918D), Telerik.Reporting.Drawing.Unit.Cm(0.5346941351890564D));
             this.tCustomerName.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.tCustomerName.Style.Font.Name = "Microsoft YaHei";
             this.tCustomerName.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -174,7 +174,7 @@ namespace ReportTemplates.Transport
             // tOrderNumber
             // 
             this.tOrderNumber.Name = "tOrderNumber";
-            this.tOrderNumber.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.48359489440918D), Telerik.Reporting.Drawing.Unit.Cm(0.431535929441452D));
+            this.tOrderNumber.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.48359489440918D), Telerik.Reporting.Drawing.Unit.Cm(0.41562581062316895D));
             this.tOrderNumber.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.tOrderNumber.Style.Font.Name = "Microsoft YaHei";
             this.tOrderNumber.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -185,7 +185,7 @@ namespace ReportTemplates.Transport
             // textBox18
             // 
             this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.5336754322052D), Telerik.Reporting.Drawing.Unit.Cm(0.43352276086807251D));
+            this.textBox18.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.5336754322052D), Telerik.Reporting.Drawing.Unit.Cm(0.5346941351890564D));
             this.textBox18.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox18.Style.Font.Name = "Microsoft YaHei";
             this.textBox18.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -196,7 +196,7 @@ namespace ReportTemplates.Transport
             // textBox13
             // 
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.5336754322052D), Telerik.Reporting.Drawing.Unit.Cm(0.431535929441452D));
+            this.textBox13.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.5336754322052D), Telerik.Reporting.Drawing.Unit.Cm(0.41562581062316895D));
             this.textBox13.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox13.Style.Font.Name = "Microsoft YaHei";
             this.textBox13.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -207,7 +207,7 @@ namespace ReportTemplates.Transport
             // tContact
             // 
             this.tContact.Name = "tContact";
-            this.tContact.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(6.9193696975708008D), Telerik.Reporting.Drawing.Unit.Cm(0.43352276086807251D));
+            this.tContact.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(6.9193696975708008D), Telerik.Reporting.Drawing.Unit.Cm(0.5346941351890564D));
             this.tContact.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.tContact.Style.Font.Name = "Microsoft YaHei";
             this.tContact.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -217,7 +217,7 @@ namespace ReportTemplates.Transport
             // tServicesOrderNo
             // 
             this.tServicesOrderNo.Name = "tServicesOrderNo";
-            this.tServicesOrderNo.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(6.9193696975708008D), Telerik.Reporting.Drawing.Unit.Cm(0.431535929441452D));
+            this.tServicesOrderNo.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(6.9193696975708008D), Telerik.Reporting.Drawing.Unit.Cm(0.41562581062316895D));
             this.tServicesOrderNo.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.tServicesOrderNo.Style.Font.Name = "Microsoft YaHei";
             this.tServicesOrderNo.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -237,12 +237,12 @@ namespace ReportTemplates.Transport
             // 
             // table1
             // 
-            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(1.5159391164779663D)));
-            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(3.6640770435333252D)));
-            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(7.3545026779174805D)));
-            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(2.8439280986785889D)));
+            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(1.5159389972686768D)));
+            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(3.6640768051147461D)));
+            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(7.3545031547546387D)));
+            this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(2.843928337097168D)));
             this.table1.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(3.8215515613555908D)));
-            this.table1.Body.Rows.Add(new Telerik.Reporting.TableBodyRow(Telerik.Reporting.Drawing.Unit.Inch(0.41421547532081604D)));
+            this.table1.Body.Rows.Add(new Telerik.Reporting.TableBodyRow(Telerik.Reporting.Drawing.Unit.Inch(0.27879884839057922D)));
             this.table1.Body.SetCellContent(0, 0, this.textBox9);
             this.table1.Body.SetCellContent(0, 1, this.textBox14);
             this.table1.Body.SetCellContent(0, 2, this.textBox24);
@@ -280,13 +280,13 @@ namespace ReportTemplates.Transport
             tableGroup6.Groupings.Add(new Telerik.Reporting.Grouping(null));
             tableGroup6.Name = "detailTableGroup";
             this.table1.RowGroups.Add(tableGroup6);
-            this.table1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(19.19999885559082D), Telerik.Reporting.Drawing.Unit.Inch(0.70588225126266479D));
+            this.table1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(19.19999885559082D), Telerik.Reporting.Drawing.Unit.Inch(0.4767155647277832D));
             this.table1.Style.Padding.Top = Telerik.Reporting.Drawing.Unit.Mm(2D);
             // 
             // textBox9
             // 
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.5159391164779663D), Telerik.Reporting.Drawing.Unit.Inch(0.41421547532081604D));
+            this.textBox9.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.5159389972686768D), Telerik.Reporting.Drawing.Unit.Inch(0.27879884839057922D));
             this.textBox9.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox9.Style.Font.Name = "Microsoft YaHei";
             this.textBox9.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
@@ -296,7 +296,7 @@ namespace ReportTemplates.Transport
             // textBox14
             // 
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.6640770435333252D), Telerik.Reporting.Drawing.Unit.Inch(0.41421547532081604D));
+            this.textBox14.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.6640768051147461D), Telerik.Reporting.Drawing.Unit.Inch(0.27879884839057922D));
             this.textBox14.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox14.Style.Font.Name = "Microsoft YaHei";
             this.textBox14.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
@@ -306,7 +306,7 @@ namespace ReportTemplates.Transport
             // textBox24
             // 
             this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.3545026779174805D), Telerik.Reporting.Drawing.Unit.Inch(0.41421547532081604D));
+            this.textBox24.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.3545031547546387D), Telerik.Reporting.Drawing.Unit.Inch(0.27879884839057922D));
             this.textBox24.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox24.Style.Font.Name = "Microsoft YaHei";
             this.textBox24.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
@@ -318,7 +318,7 @@ namespace ReportTemplates.Transport
             // 
             this.textBox19.KeepTogether = true;
             this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.8439280986785889D), Telerik.Reporting.Drawing.Unit.Inch(0.41421547532081604D));
+            this.textBox19.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.843928337097168D), Telerik.Reporting.Drawing.Unit.Inch(0.27879884839057922D));
             this.textBox19.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox19.Style.Font.Name = "Microsoft YaHei";
             this.textBox19.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
@@ -329,7 +329,7 @@ namespace ReportTemplates.Transport
             // textBox17
             // 
             this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.8215515613555908D), Telerik.Reporting.Drawing.Unit.Inch(0.41421547532081604D));
+            this.textBox17.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.8215515613555908D), Telerik.Reporting.Drawing.Unit.Inch(0.27879884839057922D));
             this.textBox17.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox17.Style.Font.Name = "Microsoft YaHei";
             this.textBox17.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(10D);
@@ -382,6 +382,15 @@ namespace ReportTemplates.Transport
             this.txtType.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
             this.txtType.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
             this.txtType.Value = "¿‡–Õ";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(15.378447532653809D), Telerik.Reporting.Drawing.Unit.Cm(0.099999748170375824D));
+            this.pictureBox1.MimeType = "image/jpeg";
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.6000008583068848D), Telerik.Reporting.Drawing.Unit.Cm(1.0000001192092896D));
+            this.pictureBox1.Sizing = Telerik.Reporting.Drawing.ImageSizeMode.ScaleProportional;
+            this.pictureBox1.Value = ((object)(resources.GetObject("pictureBox1.Value")));
             // 
             // txtPageInfo
             // 
@@ -498,9 +507,9 @@ namespace ReportTemplates.Transport
             this.table2.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(7.48359489440918D)));
             this.table2.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(2.5336754322052D)));
             this.table2.Body.Columns.Add(new Telerik.Reporting.TableBodyColumn(Telerik.Reporting.Drawing.Unit.Cm(6.9193696975708008D)));
-            this.table2.Body.Rows.Add(new Telerik.Reporting.TableBodyRow(Telerik.Reporting.Drawing.Unit.Cm(0.43985399603843689D)));
-            this.table2.Body.Rows.Add(new Telerik.Reporting.TableBodyRow(Telerik.Reporting.Drawing.Unit.Cm(0.56235975027084351D)));
-            this.table2.Body.Rows.Add(new Telerik.Reporting.TableBodyRow(Telerik.Reporting.Drawing.Unit.Cm(0.67272758483886719D)));
+            this.table2.Body.Rows.Add(new Telerik.Reporting.TableBodyRow(Telerik.Reporting.Drawing.Unit.Cm(0.53614801168441772D)));
+            this.table2.Body.Rows.Add(new Telerik.Reporting.TableBodyRow(Telerik.Reporting.Drawing.Unit.Cm(0.54162627458572388D)));
+            this.table2.Body.Rows.Add(new Telerik.Reporting.TableBodyRow(Telerik.Reporting.Drawing.Unit.Cm(0.51190578937530518D)));
             this.table2.Body.SetCellContent(0, 1, this.tAddress);
             this.table2.Body.SetCellContent(0, 0, this.textBox6);
             this.table2.Body.SetCellContent(0, 3, this.tWaybillNo);
@@ -582,7 +591,7 @@ namespace ReportTemplates.Transport
             // tAddress
             // 
             this.tAddress.Name = "tAddress";
-            this.tAddress.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.48359489440918D), Telerik.Reporting.Drawing.Unit.Cm(0.43985399603843689D));
+            this.tAddress.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.48359489440918D), Telerik.Reporting.Drawing.Unit.Cm(0.53614801168441772D));
             this.tAddress.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.tAddress.Style.Font.Name = "Microsoft YaHei";
             this.tAddress.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -593,7 +602,7 @@ namespace ReportTemplates.Transport
             // textBox6
             // 
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.2633576393127441D), Telerik.Reporting.Drawing.Unit.Cm(0.43985399603843689D));
+            this.textBox6.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.2633576393127441D), Telerik.Reporting.Drawing.Unit.Cm(0.53614801168441772D));
             this.textBox6.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox6.Style.Font.Name = "Microsoft YaHei";
             this.textBox6.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -605,7 +614,7 @@ namespace ReportTemplates.Transport
             // tWaybillNo
             // 
             this.tWaybillNo.Name = "tWaybillNo";
-            this.tWaybillNo.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(6.9193696975708008D), Telerik.Reporting.Drawing.Unit.Cm(0.43985399603843689D));
+            this.tWaybillNo.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(6.9193696975708008D), Telerik.Reporting.Drawing.Unit.Cm(0.53614801168441772D));
             this.tWaybillNo.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.tWaybillNo.Style.Font.Name = "Microsoft YaHei UI";
             this.tWaybillNo.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -616,7 +625,7 @@ namespace ReportTemplates.Transport
             // textBox8
             // 
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.5336754322052D), Telerik.Reporting.Drawing.Unit.Cm(0.43985399603843689D));
+            this.textBox8.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.5336754322052D), Telerik.Reporting.Drawing.Unit.Cm(0.53614801168441772D));
             this.textBox8.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox8.Style.Font.Name = "Microsoft YaHei";
             this.textBox8.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -627,7 +636,7 @@ namespace ReportTemplates.Transport
             // textBox1
             // 
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.2633576393127441D), Telerik.Reporting.Drawing.Unit.Cm(0.56235975027084351D));
+            this.textBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.2633576393127441D), Telerik.Reporting.Drawing.Unit.Cm(0.54162627458572388D));
             this.textBox1.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox1.Style.Font.Name = "Microsoft YaHei";
             this.textBox1.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -639,7 +648,7 @@ namespace ReportTemplates.Transport
             // txtNeedPay
             // 
             this.txtNeedPay.Name = "txtNeedPay";
-            this.txtNeedPay.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.48359489440918D), Telerik.Reporting.Drawing.Unit.Cm(0.56235975027084351D));
+            this.txtNeedPay.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(7.48359489440918D), Telerik.Reporting.Drawing.Unit.Cm(0.54162627458572388D));
             this.txtNeedPay.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.txtNeedPay.Style.Font.Name = "Microsoft YaHei";
             this.txtNeedPay.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -650,7 +659,7 @@ namespace ReportTemplates.Transport
             // textBox7
             // 
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.5336754322052D), Telerik.Reporting.Drawing.Unit.Cm(0.56235975027084351D));
+            this.textBox7.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.5336754322052D), Telerik.Reporting.Drawing.Unit.Cm(0.54162627458572388D));
             this.textBox7.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox7.Style.Font.Name = "Microsoft YaHei";
             this.textBox7.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -661,7 +670,7 @@ namespace ReportTemplates.Transport
             // txtSmOrder
             // 
             this.txtSmOrder.Name = "txtSmOrder";
-            this.txtSmOrder.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(6.9193696975708008D), Telerik.Reporting.Drawing.Unit.Cm(0.56235975027084351D));
+            this.txtSmOrder.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(6.9193696975708008D), Telerik.Reporting.Drawing.Unit.Cm(0.54162627458572388D));
             this.txtSmOrder.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.txtSmOrder.Style.Font.Name = "Microsoft YaHei UI";
             this.txtSmOrder.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -672,7 +681,7 @@ namespace ReportTemplates.Transport
             // textBox5
             // 
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.2633576393127441D), Telerik.Reporting.Drawing.Unit.Cm(0.67272758483886719D));
+            this.textBox5.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.2633576393127441D), Telerik.Reporting.Drawing.Unit.Cm(0.51190578937530518D));
             this.textBox5.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.textBox5.Style.Font.Name = "Microsoft YaHei";
             this.textBox5.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
@@ -684,21 +693,12 @@ namespace ReportTemplates.Transport
             // txtRemark
             // 
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(16.9366397857666D), Telerik.Reporting.Drawing.Unit.Cm(0.67272758483886719D));
+            this.txtRemark.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(16.9366397857666D), Telerik.Reporting.Drawing.Unit.Cm(0.51190578937530518D));
             this.txtRemark.Style.BorderStyle.Default = Telerik.Reporting.Drawing.BorderType.Solid;
             this.txtRemark.Style.Font.Name = "Microsoft YaHei";
             this.txtRemark.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(12D);
             this.txtRemark.Style.VerticalAlign = Telerik.Reporting.Drawing.VerticalAlign.Middle;
             this.txtRemark.StyleName = "";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(15.378447532653809D), Telerik.Reporting.Drawing.Unit.Cm(0.099999748170375824D));
-            this.pictureBox1.MimeType = "image/jpeg";
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(3.6000008583068848D), Telerik.Reporting.Drawing.Unit.Cm(1.0000001192092896D));
-            this.pictureBox1.Sizing = Telerik.Reporting.Drawing.ImageSizeMode.ScaleProportional;
-            this.pictureBox1.Value = ((object)(resources.GetObject("pictureBox1.Value")));
             // 
             // AfterServicePickUpOrder
             // 
