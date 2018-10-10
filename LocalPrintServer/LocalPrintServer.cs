@@ -63,7 +63,7 @@ namespace LocalPrintServer
             HttpServer.SetRoot(rootPath);
             HttpServer.OnPostRequestReceived = this.OnPrintRequestReceived;
 
-            HttpServer.Logger = new ConsoleLogger();
+            HttpServer.Logger = new FileLogger();
 
             ServerThread = new Thread(new ThreadStart(HttpServerThread));
             this.OnPrintServerLogged = delegate (string maeesage) { Console.WriteLine(maeesage); };
@@ -133,6 +133,7 @@ namespace LocalPrintServer
             catch (Exception ex)
             {
                 SafeFireLoging("出现异常，服务已关闭："+ ex.Message);
+                HttpServer.Logger.Log(ex.ToString());
             }
         }
 
@@ -149,6 +150,7 @@ namespace LocalPrintServer
             catch (Exception ex)
             {
                 SafeFireLoging("停止服务失败：" + ex.Message);
+                HttpServer.Logger.Log(ex.ToString());
             }
         }
 
@@ -165,6 +167,7 @@ namespace LocalPrintServer
             catch (Exception e)
             {
                 SafeFireLoging("同步打印线程开启失败，当前不支持顺序打印！");
+                HttpServer.Logger.Log(e.ToString());
             }
         }
 
@@ -174,11 +177,12 @@ namespace LocalPrintServer
             {
                 ThreadPool.QueueUserWorkItem(new WaitCallback(PrintWithThread), request);
                 SafeFireLoging("添加任务成功");
+                
                 return "打印服务器已接受请求";
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                HttpServer.Logger.Log(e.ToString());
                 return "添加任务失败！";
             }
         }
@@ -210,6 +214,7 @@ namespace LocalPrintServer
             catch (Exception ex)
             {                
                 SafeFireLoging("打印文件失败:" + ex.Message);
+                HttpServer.Logger.Log(ex.ToString());
             }
             SafeFirsStatistics();
         }
@@ -228,7 +233,7 @@ namespace LocalPrintServer
                 else
                 {
                     DoPrintJobWithModel(nextModl);
-                    Thread.Sleep(nextModl.print_interval * 1000);
+                    //Thread.Sleep(nextModl.print_interval * 1000);
                 }
             }
         }
@@ -282,11 +287,11 @@ namespace LocalPrintServer
             try
             {
                 message = DateTime.Now.ToString() + ": "+ message;
-                OnPrintServerLogged?.Invoke(message);
-                HttpServer.Logger.Log(123);
+                OnPrintServerLogged?.Invoke(message);                
             }
             catch (Exception ex)
             {
+                HttpServer.Logger.Log(ex.ToString());
             }
         }
 
@@ -300,22 +305,32 @@ namespace LocalPrintServer
             catch (Exception ex)
             {
                 SafeFireLoging("更新统计信息失败："+ ex.Message);
+                HttpServer.Logger.Log(ex.ToString());
             }
         }
 
         public void SelectPrinter(string printerName)
         {
-            if (this.availablePrinterNames.Contains(printerName) && !string.IsNullOrEmpty(printerName))
+            try
             {
-                this.selectedPrinterName = printerName;
-                OnPrinterChanged?.Invoke(this.selectedPrinterName);
-                
-                SafeFireLoging("打印机被选中" + printerName + " 已写入配置文件，下次启动将使用此打印机");
-                WritPrinterName(printerName);
+                if (this.availablePrinterNames.Contains(printerName) && !string.IsNullOrEmpty(printerName))
+                {
+                    this.selectedPrinterName = printerName;
+                    OnPrinterChanged?.Invoke(this.selectedPrinterName);
+
+                    SafeFireLoging("打印机被选中" + printerName + " 已写入配置文件，下次启动将使用此打印机");
+
+                    WritPrinterName(printerName);
+                }
+                else
+                {
+                    SafeFireLoging("无效打印机名称");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                SafeFireLoging("无效打印机名称");
+                SafeFireLoging("更新统计信息失败：" + ex.Message);
+                HttpServer.Logger.Log(ex.ToString());
             }
         }
 
@@ -330,6 +345,7 @@ namespace LocalPrintServer
             {
                 this.SafeFireLoging("打印时出现未知错误，请联系管理员" + ex.Message);
                 this.errorDocument ++;
+                HttpServer.Logger.Log(ex.ToString());
             }
 
             this.SafeFirsStatistics();
@@ -342,8 +358,7 @@ namespace LocalPrintServer
                 this.PrintFile(file);
             }
         }
-
-        
+               
 
         private string ReadPrinterName()
         {

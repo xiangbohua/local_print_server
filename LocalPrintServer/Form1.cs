@@ -236,6 +236,7 @@ namespace LocalPrintServer
                 if (Directory.Exists(PrintModel.FileSavePath))
                 {
                     Directory.Delete(PrintModel.FileSavePath, true);
+                    MessageBox.Show("清理成功", "清理文件");
                 }
                 else
                 {
