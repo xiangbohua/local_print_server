@@ -208,7 +208,7 @@ namespace LocalPrintServer
                 }
             }
             catch (Exception ex)
-            {
+            {                
                 SafeFireLoging("打印文件失败:" + ex.Message);
             }
             SafeFirsStatistics();
@@ -221,14 +221,14 @@ namespace LocalPrintServer
             while (true && !this._requestStop)
             {
                 PrintModel nextModl = ModelMaper.PopAJob();
-                if (nextModl != null)
+                if (nextModl == null)
                 {
-                    DoPrintJobWithModel(nextModl);
-                    Thread.Sleep(nextModl.print_interval * 1000);
+                    printEvent.WaitOne();
                 }
                 else
                 {
-                    printEvent.WaitOne();
+                    DoPrintJobWithModel(nextModl);
+                    Thread.Sleep(nextModl.print_interval * 1000);
                 }
             }
         }
@@ -283,6 +283,7 @@ namespace LocalPrintServer
             {
                 message = DateTime.Now.ToString() + ": "+ message;
                 OnPrintServerLogged?.Invoke(message);
+                HttpServer.Logger.Log(123);
             }
             catch (Exception ex)
             {

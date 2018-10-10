@@ -11,3 +11,8 @@ ReportTemplates/bin/
 Utility/obj/
 HTTPServerLib/bin/
 HTTPServer/bin/
+.vs/LocalPrintServer/v15/Server/sqlite3/storage.ide-wal
+.vs/LocalPrintServer/v15/Server/sqlite3/storage.ide-shm
+.vs/LocalPrintServer/v15/Server/sqlite3/storage.ide
+.vs/LocalPrintServer/v15/Server/sqlite3/db.lock
+.vs/LocalPrintServer/v15/.suo
