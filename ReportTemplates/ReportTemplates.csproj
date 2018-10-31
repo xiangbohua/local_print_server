@@ -43,7 +43,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="Telerik.Reporting, Version=9.1.15.624, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -58,8 +57,33 @@
     <Compile Include="Models\DeliveryOrderModel.cs" />
     <Compile Include="Models\ModelMaper.cs" />
     <Compile Include="Models\PrintModel.cs" />
+    <Compile Include="Models\ProductPackLabelModel.cs" />
     <Compile Include="Models\WaybillTaskListModel.cs" />
     <Compile Include="Models\WaybillTaskModel.cs" />
+    <Compile Include="Product\ProductPackLabe53.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Product\ProductPackLabe53.Designer.cs">
+      <DependentUpon>ProductPackLabe53.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Product\ProductPackLabe53Other.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Product\ProductPackLabe53Other.Designer.cs">
+      <DependentUpon>ProductPackLabe53Other.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Product\ProductPackLabelMid.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Product\ProductPackLabelMid.Designer.cs">
+      <DependentUpon>ProductPackLabelMid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Product\ProductPackLabelMidOther.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Product\ProductPackLabelMidOther.designer.cs">
+      <DependentUpon>ProductPackLabelMidOther.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resource1.Designer.cs" />
     <Compile Include="QrCodePdfGenerater.cs" />
@@ -99,6 +123,18 @@
     <None Include="Properties\AssemblyInfo.cs.orig" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Product\ProductPackLabe53.resx">
+      <DependentUpon>ProductPackLabe53.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\ProductPackLabe53Other.resx">
+      <DependentUpon>ProductPackLabe53Other.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\ProductPackLabelMid.resx">
+      <DependentUpon>ProductPackLabelMid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Product\ProductPackLabelMidOther.resx">
+      <DependentUpon>ProductPackLabelMidOther.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resource1.resx">
       <SubType>Designer</SubType>

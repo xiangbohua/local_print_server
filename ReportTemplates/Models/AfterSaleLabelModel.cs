@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using ReportTemplates.Transport;
+﻿using ReportTemplates.Transport;
 
 namespace ReportTemplates.Models
 {
